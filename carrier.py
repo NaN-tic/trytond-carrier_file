@@ -3,6 +3,7 @@
 
 from trytond.model import ModelView, fields
 from trytond.pool import Pool, PoolMeta
+from trytond.pyson import Eval, Not, And, Bool
 from trytond.wizard import Wizard, StateView, StateTransition, Button
 
 __all__ = ['Carrier', 'CarrierFileWizardStart', 'CarrierFileWizard',
@@ -93,8 +94,21 @@ class ShipmentOut():
     __name__ = 'stock.shipment.out'
 
     @classmethod
-    def done(cls, shipments):
+    def __setup__(cls):
+        super(ShipmentOut, cls).__setup__()
+        cls._buttons.update({
+                'generate_carrier_files': {
+                        'invisible': Eval('state') != 'done'
+                    },
+                })
+
+    @classmethod
+    def generate_carrier_files(cls, shipments):
         pool = Pool()
         Carrier = pool.get('carrier')
-        super(ShipmentOut, cls).done(shipments)
         Carrier.generate_carrier_files(shipments)
+
+    @classmethod
+    def done(cls, shipments):
+        super(ShipmentOut, cls).done(shipments)
+        cls.generate_carrier_files(shipments)

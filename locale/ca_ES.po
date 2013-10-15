@@ -43,6 +43,14 @@ msgctxt "model:ir.ui.menu,name:gen_carrier_files"
 msgid "Generate Carrier Files"
 msgstr "Genera fitxers de trasnportista"
 
+msgctxt "view:carrier.file.wizard.start:"
+msgid "Generete Delivery Files For Carriers"
+msgstr "Regenera fitxers d'enviament per als transportistes"
+
+msgctxt "view:stock.shipment.out:"
+msgid "Regenerate Carrier Files"
+msgstr "Regenerar fitxers transportistes"
+
 msgctxt "wizard_button:carrier.file.wizard,start,end:"
 msgid "Cancel"
 msgstr "Cancel·la"
