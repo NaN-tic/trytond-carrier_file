@@ -214,7 +214,7 @@
 			<field name="align">left</field>
 			<field name="fill_character"> </field>
 			<field name="format" ref="file_format_seur0"/>
-            <field name="expression">($delivery_address.street or '') + ($delivery_address.street2 or '')</field>
+            <field name="expression">$delivery_address.street + $delivery_address.street2</field>
 		</record>
 		<record id="file_format_field_ciudad1" model="file.format.field">
             <field name="name">Ciudad</field>
@@ -222,7 +222,7 @@
 			<field name="align">left</field>
 			<field name="fill_character"> </field>
 			<field name="format" ref="file_format_seur0"/>
-            <field name="expression">$delivery_address.city or ''</field>
+            <field name="expression">$delivery_address.city</field>
 		</record>
 		<record id="file_format_field_cp1" model="file.format.field">
             <field name="name">CP</field>
@@ -230,7 +230,7 @@
 			<field name="align">left</field>
 			<field name="fill_character"> </field>
 			<field name="format" ref="file_format_seur0"/>
-            <field name="expression">$delivery_address.zip or ''</field>
+            <field name="expression">$delivery_address.zip</field>
 		</record>
 		<record id="file_format_field_telfono1" model="file.format.field">
             <field name="name">Teléfono</field>
@@ -238,7 +238,7 @@
 			<field name="align">left</field>
 			<field name="fill_character"> </field>
 			<field name="format" ref="file_format_seur0"/>
-            <field name="expression">$customer.phone or ''</field>
+            <field name="expression">$customer.phone</field>
 		</record>
 		<record id="file_format_field_bltos1" model="file.format.field">
             <field name="name">Búltos</field>
@@ -337,7 +337,7 @@
             <field eval="6" name="sequence"/>
             <field name="align">left</field>
             <field name="format" ref="file_format_mrw0"/>
-            <field name="expression">$min_date and $min_date[0:10].replace('-', '')</field>
+            <field name="expression">$planned_date or $effective_date</field>
         </record>
         <record id="file_format_field_observaciondeentrega1" model="file.format.field">
             <field name="name">Observacion de entrega</field>
@@ -358,7 +358,7 @@
             <field eval="9" name="sequence"/>
             <field name="align">left</field>
             <field name="format" ref="file_format_mrw0"/>
-            <field name="expression">$delivery_address.street + ($delivery_address.street2 and (' ' + $delivery_address.street2) or '')</field>
+            <field name="expression">$delivery_address.street</field>
         </record>
         <record id="file_format_field_codigopostal1" model="file.format.field">
             <field name="name">Codigo Postal</field>
