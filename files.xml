@@ -1,0 +1,398 @@
+<?xml version="1.0" ?>
+<tryton>
+	<data>
+        <!-- ####### TIPSA ####### -->
+		<record id="file_format_tipsa0" model="file.format">
+			<field name="model" search="[('model', '=', 'stock.shipment.out')]"/>
+            <field name="name">TIPSA</field>
+			<field name="header" eval="True"/>
+            <field name="file_name">tipsa.txt</field>
+            <field name="path">/tmp</field>
+		</record>
+		<record id="file_format_field_client0" model="file.format.field">
+            <field name="name">client</field>
+            <field name="align">left</field>
+			<field eval="40" name="length"/>
+            <field name="fill_character"> </field>
+			<field name="format" ref="file_format_tipsa0"/>
+            <field name="expression">$customer.rec_name</field>
+		</record>
+		<record id="file_format_field_telefono0" model="file.format.field">
+            <field name="name">Telefono</field>
+			<field eval="1" name="sequence"/>
+            <field name="align">left</field>
+			<field eval="15" name="length"/>
+			<field name="fill_character"> </field>
+			<field name="format" ref="file_format_tipsa0"/>
+            <field name="expression">$customer.phone</field>
+		</record>
+		<record id="file_format_field_ciudad0" model="file.format.field">
+            <field name="name">ciudad</field>
+			<field eval="2" name="sequence"/>
+			<field name="align">left</field>
+			<field eval="60" name="length"/>
+			<field name="fill_character"> </field>
+			<field name="format" ref="file_format_tipsa0"/>
+            <field name="expression">$delivery_address.city</field>
+		</record>
+		<record id="file_format_field_zip0" model="file.format.field">
+            <field name="name">zip</field>
+			<field eval="3" name="sequence"/>
+			<field name="align">left</field>
+			<field eval="5" name="length"/>
+			<field name="fill_character"> </field>
+			<field name="format" ref="file_format_tipsa0"/>
+            <field name="expression">$delivery_address.zip</field>
+		</record>
+		<record id="file_format_field_provincia0" model="file.format.field">
+            <field name="name">provincia</field>
+			<field eval="4" name="sequence"/>
+			<field name="align">left</field>
+			<field eval="20" name="length"/>
+			<field name="fill_character"> </field>
+			<field name="format" ref="file_format_tipsa0"/>
+            <field name="expression">$delivery_address.state.name</field>
+		</record>
+		<record id="file_format_field_calle0" model="file.format.field">
+            <field name="name">calle</field>
+			<field eval="5" name="sequence"/>
+			<field name="align">left</field>
+			<field eval="50" name="length"/>
+			<field name="fill_character"> </field>
+			<field name="format" ref="file_format_tipsa0"/>
+            <field name="expression">$delivery_address.street</field>
+		</record>
+		<record id="file_format_field_observaciones0" model="file.format.field">
+            <field name="name">observaciones</field>
+			<field eval="6" name="sequence"/>
+			<field name="align">left</field>
+			<field eval="80" name="length"/>
+			<field name="fill_character"> </field>
+			<field name="format" ref="file_format_tipsa0"/>
+            <field name="expression">$note.replace('\\n',' ')</field>
+		</record>
+		<record id="file_format_field_referencia0" model="file.format.field">
+            <field name="name">referencia</field>
+			<field eval="7" name="sequence"/>
+			<field name="align">left</field>
+			<field eval="16" name="length"/>
+			<field name="fill_character"> </field>
+			<field name="format" ref="file_format_tipsa0"/>
+            <field name="expression">$rec_name</field>
+		</record>
+		<record id="file_format_field_doc0" model="file.format.field">
+            <field name="name">doc</field>
+			<field eval="8" name="sequence"/>
+			<field name="align">left</field>
+			<field eval="4" name="length"/>
+			<field name="fill_character">0</field>
+			<field name="format" ref="file_format_tipsa0"/>
+            <field name="expression">'0'</field>
+		</record>
+		<record id="file_format_field_paquetes0" model="file.format.field">
+            <field name="name">paquetes</field>
+			<field eval="9" name="sequence"/>
+			<field name="align">left</field>
+			<field eval="4" name="length"/>
+			<field name="fill_character">0</field>
+			<field name="format" ref="file_format_tipsa0"/>
+            <field name="expression">$packages or 0</field>
+		</record>
+		<record id="file_format_field_reembolso0" model="file.format.field">
+            <field name="name">reembolso</field>
+			<field eval="10" name="sequence"/>
+			<field name="align">left</field>
+			<field name="decimal_character">,</field>
+			<field eval="12" name="length"/>
+			<field name="fill_character">0</field>
+			<field name="format" ref="file_format_tipsa0"/>
+            <field name="expression">'0'</field>
+            <field name="number_format">.2f</field>
+		</record>
+		<record id="file_format_field_kilos0" model="file.format.field">
+            <field name="name">kilos</field>
+			<field eval="11" name="sequence"/>
+            <field name="align">right</field>
+			<field eval="4" name="length"/>
+			<field name="fill_character">0</field>
+			<field name="format" ref="file_format_tipsa0"/>
+            <field name="expression">int(round($weight,0)) or 0</field>
+		</record>
+		<record id="file_format_field_conretorno0" model="file.format.field">
+            <field name="name">Con Retorno</field>
+			<field eval="12" name="sequence"/>
+			<field name="align">left</field>
+			<field eval="1" name="length"/>
+			<field name="fill_character"> </field>
+			<field name="format" ref="file_format_tipsa0"/>
+            <field name="expression">'N'</field>
+		</record>
+		<record id="file_format_field_conacuse0" model="file.format.field">
+            <field name="name">Con Acuse</field>
+			<field eval="12" name="sequence"/>
+			<field name="align">left</field>
+			<field eval="1" name="length"/>
+			<field name="fill_character"> </field>
+			<field name="format" ref="file_format_tipsa0"/>
+            <field name="expression">'N'</field>
+		</record>
+		<record id="file_format_field_codigocliente0" model="file.format.field">
+            <field name="name">Codigo Cliente</field>
+			<field eval="13" name="sequence"/>
+            <field name="align">right</field>
+			<field eval="5" name="length"/>
+			<field name="fill_character">0</field>
+			<field name="format" ref="file_format_tipsa0"/>
+            <field name="expression">code</field>
+		</record>
+		<record id="file_format_field_tipodeporte0" model="file.format.field">
+            <field name="name">Tipo de Porte</field>
+			<field eval="14" name="sequence"/>
+			<field name="align">left</field>
+			<field eval="1" name="length"/>
+			<field name="fill_character"> </field>
+			<field name="format" ref="file_format_tipsa0"/>
+            <field name="expression">$incoterm and $incoterm.code == 'EXW' and 'P' or 'D'</field>
+		</record>
+		<record id="file_format_field_articulo0" model="file.format.field">
+            <field name="name">Articulo</field>
+			<field eval="15" name="sequence"/>
+			<field name="align">left</field>
+			<field eval="2" name="length"/>
+			<field name="fill_character"> </field>
+			<field name="format" ref="file_format_tipsa0"/>
+            <field name="expression">'14'</field>
+		</record>
+		<record id="file_format_field_sabado0" model="file.format.field">
+            <field name="name">Sabado</field>
+			<field eval="16" name="sequence"/>
+			<field name="align">left</field>
+			<field eval="1" name="length"/>
+			<field name="fill_character"> </field>
+			<field name="format" ref="file_format_tipsa0"/>
+            <field name="expression">'N'</field>
+		</record>
+		<record id="file_format_field_correo0" model="file.format.field">
+            <field name="name">correo</field>
+			<field eval="17" name="sequence"/>
+			<field name="align">left</field>
+			<field eval="60" name="length"/>
+			<field name="fill_character"> </field>
+			<field name="format" ref="file_format_tipsa0"/>
+            <field name="expression">$customer.email</field>
+		</record>
+
+        <!-- ####### SEUR ####### -->
+		<record id="file_format_seur0" model="file.format">
+			<field name="model" search="[('model', '=', 'stock.shipment.out')]"/>
+            <field name="name">SEUR</field>
+			<field eval="&apos;&quot;&apos;" name="quote"/>
+			<field eval="True" name="header"/>
+            <field name="separator">,</field>
+            <field name="file_name">res.txt</field>
+            <field name="path">/tmp</field>
+		</record>
+		<record id="file_format_field_nombreempresa1" model="file.format.field">
+            <field name="name">Nombre Empresa</field>
+			<field eval="1" name="sequence"/>
+			<field name="align">left</field>
+			<field name="fill_character"> </field>
+			<field name="format" ref="file_format_seur0"/>
+            <field name="expression">$customer.rec_name</field>
+		</record>
+		<record id="file_format_field_nombrecomercial1" model="file.format.field">
+            <field name="name">Nombre Comercial</field>
+			<field eval="2" name="sequence"/>
+			<field name="align">left</field>
+			<field name="fill_character"> </field>
+			<field name="format" ref="file_format_seur0"/>
+            <field name="expression">$customer.rec_name</field>
+		</record>
+		<record id="file_format_field_callecompaa1" model="file.format.field">
+            <field name="name">Calle Compañía</field>
+			<field eval="3" name="sequence"/>
+			<field name="align">left</field>
+			<field name="fill_character"> </field>
+			<field name="format" ref="file_format_seur0"/>
+            <field name="expression">($delivery_address.street or '') + ($delivery_address.street2 or '')</field>
+		</record>
+		<record id="file_format_field_ciudad1" model="file.format.field">
+            <field name="name">Ciudad</field>
+			<field eval="4" name="sequence"/>
+			<field name="align">left</field>
+			<field name="fill_character"> </field>
+			<field name="format" ref="file_format_seur0"/>
+            <field name="expression">$delivery_address.city or ''</field>
+		</record>
+		<record id="file_format_field_cp1" model="file.format.field">
+            <field name="name">CP</field>
+			<field eval="5" name="sequence"/>
+			<field name="align">left</field>
+			<field name="fill_character"> </field>
+			<field name="format" ref="file_format_seur0"/>
+            <field name="expression">$delivery_address.zip or ''</field>
+		</record>
+		<record id="file_format_field_telfono1" model="file.format.field">
+            <field name="name">Teléfono</field>
+			<field eval="6" name="sequence"/>
+			<field name="align">left</field>
+			<field name="fill_character"> </field>
+			<field name="format" ref="file_format_seur0"/>
+            <field name="expression">$customer.phone or ''</field>
+		</record>
+		<record id="file_format_field_bltos1" model="file.format.field">
+            <field name="name">Búltos</field>
+			<field eval="7" name="sequence"/>
+			<field name="align">left</field>
+			<field name="fill_character"> </field>
+			<field name="format" ref="file_format_seur0"/>
+            <field name="expression">$packages or 1</field>
+		</record>
+		<record id="file_format_field_peso1" model="file.format.field">
+            <field name="name">Peso</field>
+			<field eval="8" name="sequence"/>
+			<field name="align">left</field>
+            <field name="decimal_character">,</field>
+			<field name="fill_character"> </field>
+			<field name="format" ref="file_format_seur0"/>
+            <field name="expression">$weight or 0.0</field>
+            <field name="number_format">%.2f</field>
+		</record>
+		<record id="file_format_field_origen1" model="file.format.field">
+            <field name="name">Origen</field>
+			<field eval="9" name="sequence"/>
+			<field name="align">left</field>
+			<field name="fill_character"> </field>
+			<field name="format" ref="file_format_seur0"/>
+            <field name="expression">$origin</field>
+		</record>
+		<record id="file_format_field_total1" model="file.format.field">
+            <field name="name">Total</field>
+			<field eval="10" name="sequence"/>
+			<field name="align">left</field>
+			<field name="decimal_character">,</field>
+			<field name="fill_character"> </field>
+			<field name="format" ref="file_format_seur0"/>
+            <field name="expression">$cash_on_delivery and ($sale.amount_total or 0.0) or ''</field>
+            <field name="number_format">%.2f</field>
+		</record>
+		<record id="file_format_field_contrareembolso1" model="file.format.field">
+            <field name="name">Contrareembolso</field>
+			<field eval="11" name="sequence"/>
+			<field name="align">left</field>
+			<field eval="1" name="length"/>
+			<field name="fill_character"> </field>
+			<field name="format" ref="file_format_seur0"/>
+            <field name="expression">$cash_on_delivery and 'F' or ''</field>
+		</record>
+
+        <!-- ####### MRW ####### -->
+        <record id="file_format_mrw0" model="file.format">
+			<field name="model" search="[('model', '=', 'stock.shipment.out')]"/>
+            <field name="name">MRW</field>
+            <field name="file_name">mrw.csv</field>
+            <field eval="True" name="header"/>
+            <field name="separator">;</field>
+            <field name="quote">&quot;</field>
+            <field name="path">/tmp</field>
+        </record>
+
+        <record id="file_format_field_numerodealbaranmrw1" model="file.format.field">
+            <field name="name">Numero de albaran MRW</field>
+            <field eval="1" name="sequence"/>
+            <field name="align">left</field>
+            <field name="format" ref="file_format_mrw0"/>
+        </record>
+        <record id="file_format_field_referenciaenviocliente1" model="file.format.field">
+            <field name="name">Referencia envio cliente</field>
+            <field eval="2" name="sequence"/>
+            <field name="align">left</field>
+            <field name="format" ref="file_format_mrw0"/>
+            <field name="expression">$rec_name</field>
+        </record>
+        <record id="file_format_field_referenciadebultocliente1" model="file.format.field">
+            <field name="name">Referencia de bulto cliente</field>
+            <field eval="3" name="sequence"/>
+            <field name="align">left</field>
+            <field name="format" ref="file_format_mrw0"/>
+        </record>
+        <record id="file_format_field_pesodelbulto1" model="file.format.field">
+            <field name="name">Peso del bulto</field>
+            <field eval="4" name="sequence"/>
+            <field name="align">left</field>
+            <field name="format" ref="file_format_mrw0"/>
+            <field name="expression">int(round($weight, 0)) or 0</field>
+            <field name="number_format">%d</field>
+        </record>
+        <record id="file_format_field_totalbultosdelenvio1" model="file.format.field">
+            <field name="name">Total bultos del envio</field>
+            <field eval="5" name="sequence"/>
+            <field name="align">left</field>
+            <field name="format" ref="file_format_mrw0"/>
+            <field name="expression">$number_of_packages or 0</field>
+            <field name="number_format">%d</field>
+        </record>
+        <record id="file_format_field_fechaderecogida1" model="file.format.field">
+            <field name="name">Fecha de recogida</field>
+            <field eval="6" name="sequence"/>
+            <field name="align">left</field>
+            <field name="format" ref="file_format_mrw0"/>
+            <field name="expression">$min_date and $min_date[0:10].replace('-', '')</field>
+        </record>
+        <record id="file_format_field_observaciondeentrega1" model="file.format.field">
+            <field name="name">Observacion de entrega</field>
+            <field eval="7" name="sequence"/>
+            <field name="align">left</field>
+            <field name="format" ref="file_format_mrw0"/>
+            <field name="expression">$note.replace('\n', ' ')</field>
+        </record>
+        <record id="file_format_field_nombreapellidoentrega1" model="file.format.field">
+            <field name="name">Nombre Apellido Entrega</field>
+            <field eval="8" name="sequence"/>
+            <field name="align">left</field>
+            <field name="format" ref="file_format_mrw0"/>
+            <field name="expression">$customer.rec_name</field>
+        </record>
+        <record id="file_format_field_direccionentrega1" model="file.format.field">
+            <field name="name">Direccion Entrega</field>
+            <field eval="9" name="sequence"/>
+            <field name="align">left</field>
+            <field name="format" ref="file_format_mrw0"/>
+            <field name="expression">$delivery_address.street + ($delivery_address.street2 and (' ' + $delivery_address.street2) or '')</field>
+        </record>
+        <record id="file_format_field_codigopostal1" model="file.format.field">
+            <field name="name">Codigo Postal</field>
+            <field eval="10" name="sequence"/>
+            <field name="align">left</field>
+            <field name="format" ref="file_format_mrw0"/>
+            <field name="expression">$delivery_address.zip</field>
+        </record>
+        <record id="file_format_field_poblacion1" model="file.format.field">
+            <field name="name">Poblacion</field>
+            <field eval="11" name="sequence"/>
+            <field name="align">left</field>
+            <field name="format" ref="file_format_mrw0"/>
+            <field name="expression">$delivery_address.city</field>
+        </record>
+        <record id="file_format_field_codigoisopais1" model="file.format.field">
+            <field name="name">Codigo ISO Pais</field>
+            <field eval="12" name="sequence"/>
+            <field name="align">left</field>
+            <field name="format" ref="file_format_mrw0"/>
+            <field name="expression">$delivery_address.country.code</field>
+        </record>
+        <record id="file_format_field_telefonodestino1" model="file.format.field">
+            <field name="name">Telefono destino</field>
+            <field eval="13" name="sequence"/>
+            <field name="align">left</field>
+            <field name="format" ref="file_format_mrw0"/>
+            <field name="expression">$customer.phone</field>
+        </record>
+        <record id="file_format_field_franquiciadedestino1" model="file.format.field">
+            <field name="name">Franquicia de destino</field>
+            <field eval="14" name="sequence"/>
+            <field name="align">left</field>
+            <field name="format" ref="file_format_mrw0"/>
+        </record>
+	</data>
+</tryton>

@@ -1,0 +1,51 @@
+# 
+msgid ""
+msgstr "Content-Type: text/plain; charset=utf-8\n"
+
+msgctxt "error:carrier.file.wizard:"
+msgid "There are no shipments for this dates and carrier."
+msgstr "No hay albaranes para estas fechas y transportista"
+
+msgctxt "field:carrier,format:"
+msgid "File Format"
+msgstr "Formato fichero"
+
+msgctxt "field:carrier.file.wizard.start,carrier:"
+msgid "Carrier"
+msgstr "Transportistas"
+
+msgctxt "field:carrier.file.wizard.start,end_date:"
+msgid "End Date"
+msgstr "Data final"
+
+msgctxt "field:carrier.file.wizard.start,id:"
+msgid "ID"
+msgstr "ID"
+
+msgctxt "field:carrier.file.wizard.start,start_date:"
+msgid "Start Date"
+msgstr "Data inicial"
+
+msgctxt "model:carrier.file.wizard.start,name:"
+msgid "Carrier File Wizard Start"
+msgstr "Inicio Generar ficheros transportistas"
+
+msgctxt "model:ir.action,name:act_generate_carrier_files"
+msgid "Generate Carrier Files"
+msgstr "Generar ficheros transportistas"
+
+msgctxt "model:ir.action.wizard,name:act_generate_carrier_files"
+msgid "Generate Carrier Files"
+msgstr "Generar ficheros transportistas"
+
+msgctxt "model:ir.ui.menu,name:gen_carrier_files"
+msgid "Generate Carrier Files"
+msgstr "Generar ficheros transportistas"
+
+msgctxt "wizard_button:carrier.file.wizard,start,end:"
+msgid "Cancel"
+msgstr "Cancel·la"
+
+msgctxt "wizard_button:carrier.file.wizard,start,generate:"
+msgid "Generate Files"
+msgstr "Generar Ficheros"

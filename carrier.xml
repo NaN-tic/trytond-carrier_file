@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tryton>
+    <data>
+
+        <record model="ir.ui.view" id="carrier_file_wizard_start_view_form">
+            <field name="name">carrier_file_wizard_start_form</field>
+            <field name="model">carrier.file.wizard.start</field>
+            <field name="type">form</field>
+        </record>
+
+        <record id="view_delivery_carrier_file_form" model="ir.ui.view">
+                <field name="name">carrier_form</field>
+                <field name="model">carrier</field>
+                <field name="type">form</field>
+                <field name="inherit" ref="carrier.carrier_view_form" />
+        </record>
+
+        <record model="ir.action.wizard" id="act_generate_carrier_files">
+            <field name="name">Generate Carrier Files</field>
+            <field name="wiz_name">carrier.file.wizard</field>
+        </record>
+
+        <menuitem parent="stock.menu_stock" sequence="999" id="gen_carrier_files"
+            action="act_generate_carrier_files"/>
+
+    </data>
+</tryton>
+
