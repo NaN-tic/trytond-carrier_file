@@ -13,7 +13,7 @@ msgstr "Format fitxer"
 
 msgctxt "field:carrier.file.wizard.start,carrier:"
 msgid "Carrier"
-msgstr "Transportistes"
+msgstr "Transportista"
 
 msgctxt "field:carrier.file.wizard.start,end_date:"
 msgid "End Date"
@@ -29,19 +29,19 @@ msgstr "Data inici"
 
 msgctxt "model:carrier.file.wizard.start,name:"
 msgid "Carrier File Wizard Start"
-msgstr "Inici Genera fitxers de trasnportista"
+msgstr "Inici genera fitxers de trasnportista"
 
 msgctxt "model:ir.action,name:act_generate_carrier_files"
 msgid "Generate Carrier Files"
-msgstr "Genera fitxers de trasnportista"
+msgstr "Genera fitxers de transportista"
 
 msgctxt "model:ir.action.wizard,name:act_generate_carrier_files"
 msgid "Generate Carrier Files"
-msgstr "Genera fitxers de trasnportista"
+msgstr "Genera fitxers de transportista"
 
 msgctxt "model:ir.ui.menu,name:gen_carrier_files"
 msgid "Generate Carrier Files"
-msgstr "Genera fitxers de trasnportista"
+msgstr "Genera fitxers de transportista"
 
 msgctxt "view:carrier.file.wizard.start:"
 msgid "Generete Delivery Files For Carriers"
@@ -57,4 +57,4 @@ msgstr "Cancel·la"
 
 msgctxt "wizard_button:carrier.file.wizard,start,generate:"
 msgid "Generate Files"
-msgstr "Genera Fitxers"
+msgstr "Genera fitxers"
