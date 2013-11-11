@@ -12,7 +12,7 @@ msgstr "Formato fichero"
 
 msgctxt "field:carrier.file.wizard.start,carrier:"
 msgid "Carrier"
-msgstr "Transportistas"
+msgstr "Transportista"
 
 msgctxt "field:carrier.file.wizard.start,end_date:"
 msgid "End Date"
@@ -28,7 +28,7 @@ msgstr "Data inicial"
 
 msgctxt "model:carrier.file.wizard.start,name:"
 msgid "Carrier File Wizard Start"
-msgstr "Inicio Generar ficheros transportistas"
+msgstr "Inicio generar ficheros transportistas"
 
 msgctxt "model:ir.action,name:act_generate_carrier_files"
 msgid "Generate Carrier Files"
@@ -52,8 +52,8 @@ msgstr "Regenerar ficheros transportistas"
 
 msgctxt "wizard_button:carrier.file.wizard,start,end:"
 msgid "Cancel"
-msgstr "Cancel·la"
+msgstr "Cancelar"
 
 msgctxt "wizard_button:carrier.file.wizard,start,generate:"
 msgid "Generate Files"
-msgstr "Generar Ficheros"
+msgstr "Generar ficheros"
