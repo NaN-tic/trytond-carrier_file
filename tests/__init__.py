@@ -2,3 +2,5 @@
 # copyright notices and license terms.
 
 from .test_carrier_file import suite
+
+__all__ = ['suite']
