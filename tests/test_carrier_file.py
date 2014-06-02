@@ -26,7 +26,7 @@ class CarrierFileTestCase(unittest.TestCase):
         '''
         Test views.
         '''
-        test_view('activity')
+        test_view('carrier_file')
 
     def test0006depends(self):
         '''
