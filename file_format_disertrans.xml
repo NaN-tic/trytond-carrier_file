@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<!-- The COPYRIGHT file at the top level of this repository contains the full
+     copyright notices and license terms. -->
+<tryton>
+    <data>
+        <record id="file_format_disertrans" model="file.format">
+            <field name="model" search="[('model', '=', 'stock.shipment.out')]"/>
+            <field name="name">Disertrans</field>
+            <field name="file_name">disertrans.txt</field>
+            <field name="header" eval="True"/>
+            <field name="separator"></field>
+            <field name="quote"></field>
+            <field name="path">/tmp</field>
+        </record>
+        <record id="file_format_field_disertrans_field1" model="file.format.field">
+            <field name="format" ref="file_format_disertrans"/>
+            <field name="sequence" eval="1"/>
+            <field name="name">ALBARAN</field>
+            <field name="align">right</field>
+            <field name="length">15</field>
+            <field name="fill_character"> </field>
+            <field name="expression">$rec_name</field>
+        </record>
+        <record id="file_format_field_disertrans_field2" model="file.format.field">
+            <field name="format" ref="file_format_disertrans"/>
+            <field name="sequence" eval="2"/>
+            <field name="name">DESTINATARIO</field>
+            <field name="align">right</field>
+            <field name="length">45</field>
+            <field name="fill_character"> </field>
+            <field name="expression">$customer.name</field>
+        </record>
+        <record id="file_format_field_disertrans_field3" model="file.format.field">
+            <field name="format" ref="file_format_disertrans"/>
+            <field name="sequence" eval="3"/>
+            <field name="name">DOMICD</field>
+            <field name="align">right</field>
+            <field name="length">45</field>
+            <field name="fill_character"> </field>
+            <field name="expression">($delivery_address.street + (' ' + $delivery_address.streetbis) if $delivery_address.streetbis else '') if $delivery_address.street else ''</field>
+        </record>
+        <record id="file_format_field_disertrans_field4" model="file.format.field">
+            <field name="format" ref="file_format_disertrans"/>
+            <field name="sequence" eval="4"/>
+            <field name="name">POBLACD</field>
+            <field name="align">right</field>
+            <field name="length">35</field>
+            <field name="fill_character"> </field>
+            <field name="expression">$delivery_address.city if $delivery_address.city else ''</field>
+        </record>
+        <record id="file_format_field_disertrans_field5" model="file.format.field">
+            <field name="format" ref="file_format_disertrans"/>
+            <field name="sequence" eval="5"/>
+            <field name="name">POSTALD</field>
+            <field name="align">right</field>
+            <field name="length">5</field>
+            <field name="fill_character">0</field>
+            <field name="expression">$delivery_address.zip if $delivery_address.zip else ''</field>
+        </record>
+        <record id="file_format_field_disertrans_field6" model="file.format.field">
+            <field name="format" ref="file_format_disertrans"/>
+            <field name="sequence" eval="6"/>
+            <field name="name">PAIS_DES</field>
+            <field name="align">right</field>
+            <field name="length">2</field>
+            <field name="fill_character"> </field>
+            <field name="expression">$delivery_address.country.code if $delivery_address.country else ''</field>
+        </record>
+        <record id="file_format_field_disertrans_field7" model="file.format.field">
+            <field name="format" ref="file_format_disertrans"/>
+            <field name="sequence" eval="7"/>
+            <field name="name">CONTACTO</field>
+            <field name="align">right</field>
+            <field name="length">45</field>
+            <field name="fill_character"> </field>
+            <field name="expression">$delivery_address.name if $delivery_address.name else ''</field>
+        </record>
+        <record id="file_format_field_disertrans_field8" model="file.format.field">
+            <field name="format" ref="file_format_disertrans"/>
+            <field name="sequence" eval="8"/>
+            <field name="name">TELEFONOD</field>
+            <field name="align">right</field>
+            <field name="length">9</field>
+            <field name="fill_character"> </field>
+            <field name="expression">$customer.phone if $customer.phone else ''</field>
+        </record>
+        <record id="file_format_field_disertrans_field9" model="file.format.field">
+            <field name="format" ref="file_format_disertrans"/>
+            <field name="sequence" eval="9"/>
+            <field name="name">MOVIL</field>
+            <field name="align">right</field>
+            <field name="length">9</field>
+            <field name="fill_character"> </field>
+            <field name="expression">$customer.mobile if $customer.mobile else ''</field>
+        </record>
+        <record id="file_format_field_disertrans_field10" model="file.format.field">
+            <field name="format" ref="file_format_disertrans"/>
+            <field name="sequence" eval="10"/>
+            <field name="name">EMAILD</field>
+            <field name="align">right</field>
+            <field name="length">75</field>
+            <field name="fill_character"> </field>
+            <field name="expression">$customer.email or ''</field>
+        </record>
+        <record id="file_format_field_disertrans_field11" model="file.format.field">
+            <field name="format" ref="file_format_disertrans"/>
+            <field name="sequence" eval="11"/>
+            <field name="name">BULTOS</field>
+            <field name="align">right</field>
+            <field name="length">5</field>
+            <field name="fill_character"> </field>
+            <field name="expression">len($outgoing_moves)</field>
+        </record>
+        <record id="file_format_field_disertrans_field12" model="file.format.field">
+            <field name="format" ref="file_format_disertrans"/>
+            <field name="sequence" eval="12"/>
+            <field name="name">PESO</field>
+            <field name="align">right</field>
+            <field name="length">6</field>
+            <field name="fill_character"> </field>
+            <field name="expression">TODO</field>
+        </record>
+        <record id="file_format_field_disertrans_field14" model="file.format.field">
+            <field name="format" ref="file_format_disertrans"/>
+            <field name="sequence" eval="14"/>
+            <field name="name">OBSERVACIONES</field>
+            <field name="align">right</field>
+            <field name="length">50</field>
+            <field name="fill_character"> </field>
+            <field name="expression">$customer.external_observations if $customer.external_observations else ''</field>
+        </record>
+    </data>
+</tryton>

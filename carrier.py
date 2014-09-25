@@ -1,6 +1,5 @@
 # The COPYRIGHT file at the top level of this repository contains the full
 # copyright notices and license terms.
-
 from trytond.model import ModelView, fields
 from trytond.pool import Pool, PoolMeta
 from trytond.pyson import Eval, Not, And, Bool
@@ -28,11 +27,11 @@ class Carrier():
                     shipment_carriers[shipment.carrier].append(shipment)
 
         if shipment_carriers:
-                for pcarrier in shipment_carriers:
-                    if carrier and pcarrier == carrier:
-                        pcarrier = carrier
-                    if pcarrier.format:
-                        pcarrier.format.export_file(shipment_carriers[pcarrier])
+            for pcarrier in shipment_carriers:
+                if carrier and pcarrier == carrier:
+                    pcarrier = carrier
+                if pcarrier.format:
+                    pcarrier.format.export_file(shipment_carriers[pcarrier])
 
 
 class CarrierFileWizardStart(ModelView):

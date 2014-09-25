@@ -1,0 +1,200 @@
+<?xml version="1.0"?>
+<!-- The COPYRIGHT file at the top level of this repository contains the full
+     copyright notices and license terms. -->
+<tryton>
+    <data>
+        <record id="file_format_ups" model="file.format">
+            <field name="model" search="[('model', '=', 'stock.shipment.out')]"/>
+            <field name="name">UPS</field>
+            <field name="file_name">worldship.csv</field>
+            <field name="header" eval="True"/>
+            <field name="separator">,</field>
+            <field name="quote">&quot;</field>
+            <field name="path">/tmp</field>
+        </record>
+        <record id="file_format_field_ups_field1" model="file.format.field">
+            <field name="format" ref="file_format_ups"/>
+            <field name="sequence" eval="1"/>
+            <field name="name">ORDERID</field>
+            <field name="align">left</field>
+            <field name="expression">$id</field>
+        </record>
+        <record id="file_format_field_ups_field2" model="file.format.field">
+            <field name="format" ref="file_format_ups"/>
+            <field name="sequence" eval="2"/>
+            <field name="name">SHIPMENTINFORMATION_SERVICETYPE</field>
+            <field name="align">left</field>
+            <field name="expression"></field>
+        </record>
+        <record id="file_format_field_ups_field3" model="file.format.field">
+            <field name="format" ref="file_format_ups"/>
+            <field name="sequence" eval="3"/>
+            <field name="name">SHIPMENTINFORMATION_BILLINGOPTION</field>
+            <field name="align">left</field>
+            <field name="expression"></field>
+        </record>
+        <record id="file_format_field_ups_field4" model="file.format.field">
+            <field name="format" ref="file_format_ups"/>
+            <field name="sequence" eval="4"/>
+            <field name="name">SHIPMENTINFORMATION_QVNOPTION</field>
+            <field name="align">left</field>
+            <field name="expression"></field>
+        </record>
+        <record id="file_format_field_ups_field5" model="file.format.field">
+            <field name="format" ref="file_format_ups"/>
+            <field name="sequence" eval="5"/>
+            <field name="name">SHIPMENTINFORMATION_QVNSHIPNOTIFICATION1OPTION</field>
+            <field name="align">left</field>
+            <field name="expression"></field>
+        </record>
+        <record id="file_format_field_ups_field6" model="file.format.field">
+            <field name="format" ref="file_format_ups"/>
+            <field name="sequence" eval="6"/>
+            <field name="name">SHIPMENTINFORMATION_NOTIFICATIONRECIPIENT1TYPE</field>
+            <field name="align">left</field>
+            <field name="expression"></field>
+        </record>
+        <record id="file_format_field_ups_field7" model="file.format.field">
+            <field name="format" ref="file_format_ups"/>
+            <field name="sequence" eval="7"/>
+            <field name="name">SHIPMENTINFORMATION_NOTIFICATIONRECIPIENT1FAXOREMAIL</field>
+            <field name="align">left</field>
+            <field name="expression">$customer.email or ''</field>
+        </record>
+        <record id="file_format_field_ups_field8" model="file.format.field">
+            <field name="format" ref="file_format_ups"/>
+            <field name="sequence" eval="8"/>
+            <field name="name">SHIPTO_COMPANYORNAME</field>
+            <field name="align">left</field>
+            <field name="expression">$customer.name</field>
+        </record>
+        <record id="file_format_field_ups_field9" model="file.format.field">
+            <field name="format" ref="file_format_ups"/>
+            <field name="sequence" eval="9"/>
+            <field name="name">SHIPTO_STREETADDRESS</field>
+            <field name="align">left</field>
+            <field name="expression">$delivery_address.street</field>
+        </record>
+        <record id="file_format_field_ups_field10" model="file.format.field">
+            <field name="format" ref="file_format_ups"/>
+            <field name="sequence" eval="10"/>
+            <field name="name">SHIPTO_ROOMFLOORADDRESS2</field>
+            <field name="align">left</field>
+            <field name="expression">$delivery_address.streetbis</field>
+        </record>
+        <record id="file_format_field_ups_field11" model="file.format.field">
+            <field name="format" ref="file_format_ups"/>
+            <field name="sequence" eval="11"/>
+            <field name="name">SHIPTO_CITY</field>
+            <field name="align">left</field>
+            <field name="expression">$delivery_address.city</field>
+        </record>
+        <record id="file_format_field_ups_field12" model="file.format.field">
+            <field name="format" ref="file_format_ups"/>
+            <field name="sequence" eval="12"/>
+            <field name="name">SHIPTO_STATE</field>
+            <field name="align">left</field>
+            <field name="expression">$delivery_address.subdivision.name if $delivery_address.subdivision else ''</field>
+        </record>
+        <record id="file_format_field_ups_field13" model="file.format.field">
+            <field name="format" ref="file_format_ups"/>
+            <field name="sequence" eval="13"/>
+            <field name="name">SHIPTO_COUNTRY</field>
+            <field name="align">left</field>
+            <field name="expression">$delivery_address.country.name if delivery_address.country</field>
+        </record>
+        <record id="file_format_field_ups_field14" model="file.format.field">
+            <field name="format" ref="file_format_ups"/>
+            <field name="sequence" eval="14"/>
+            <field name="name">SHIPTO_ZIPCODE</field>
+            <field name="align">left</field>
+            <field name="length">5</field>
+            <field name="fill_character">0</field>
+            <field name="expression">$delivery_address.zip</field>
+        </record>
+        <record id="file_format_field_ups_field15" model="file.format.field">
+            <field name="format" ref="file_format_ups"/>
+            <field name="sequence" eval="15"/>
+            <field name="name">SHIPTO_TELEPHONE</field>
+            <field name="align">left</field>
+            <field name="expression">$customer.phone or $customer.mobile or ''</field>
+        </record>
+        <record id="file_format_field_ups_field16" model="file.format.field">
+            <field name="format" ref="file_format_ups"/>
+            <field name="sequence" eval="16"/>
+            <field name="name">SHIPTO_RESIDENTIALINDICATOR</field>
+            <field name="align">left</field>
+            <field name="expression"></field>
+        </record>
+        <record id="file_format_field_ups_field17" model="file.format.field">
+            <field name="format" ref="file_format_ups"/>
+            <field name="sequence" eval="17"/>
+            <field name="name">PACKAGE_PACKAGETYPE</field>
+            <field name="align">left</field>
+            <field name="expression"></field>
+        </record>
+        <record id="file_format_field_ups_field18" model="file.format.field">
+            <field name="format" ref="file_format_ups"/>
+            <field name="sequence" eval="18"/>
+            <field name="name">PACKAGE_WEIGHT</field>
+            <field name="align">left</field>
+            <field name="expression"></field>
+        </record>
+        <record id="file_format_field_ups_field19" model="file.format.field">
+            <field name="format" ref="file_format_ups"/>
+            <field name="sequence" eval="19"/>
+            <field name="name">PACKAGE_REFERENCE1</field>
+            <field name="align">left</field>
+            <field name="expression">$rec_name</field>
+        </record>
+        <record id="file_format_field_ups_field20" model="file.format.field">
+            <field name="format" ref="file_format_ups"/>
+            <field name="sequence" eval="20"/>
+            <field name="name">PACKAGE_REFERENCE2</field>
+            <field name="align">left</field>
+            <field name="expression">$reference</field>
+        </record>
+        <record id="file_format_field_ups_field21" model="file.format.field">
+            <field name="format" ref="file_format_ups"/>
+            <field name="sequence" eval="21"/>
+            <field name="name">PACKAGE_REFERENCE3</field>
+            <field name="align">left</field>
+            <field name="expression"></field>
+        </record>
+        <record id="file_format_field_ups_field22" model="file.format.field">
+            <field name="format" ref="file_format_ups"/>
+            <field name="sequence" eval="22"/>
+            <field name="name">PACKAGE_REFERENCE4</field>
+            <field name="align">left</field>
+            <field name="expression"></field>
+        </record>
+        <record id="file_format_field_ups_field23" model="file.format.field">
+            <field name="format" ref="file_format_ups"/>
+            <field name="sequence" eval="23"/>
+            <field name="name">PACKAGE_REFERENCE5</field>
+            <field name="align">left</field>
+            <field name="expression"></field>
+        </record>
+        <record id="file_format_field_ups_field24" model="file.format.field">
+            <field name="format" ref="file_format_ups"/>
+            <field name="sequence" eval="24"/>
+            <field name="name">PACKAGE_DECLAREDVALUEOPTION</field>
+            <field name="align">left</field>
+            <field name="expression"></field>
+        </record>
+        <record id="file_format_field_ups_field25" model="file.format.field">
+            <field name="format" ref="file_format_ups"/>
+            <field name="sequence" eval="25"/>
+            <field name="name">PACKAGE_DECLAREDVALUEAMOUNT</field>
+            <field name="align">left</field>
+            <field name="expression"></field>
+        </record>
+        <record id="file_format_field_ups_field26" model="file.format.field">
+            <field name="format" ref="file_format_ups"/>
+            <field name="sequence" eval="26"/>
+            <field name="name">SHIPTO_LOCATIONID</field>
+            <field name="align">left</field>
+            <field name="expression"></field>
+        </record>
+    </data>
+</tryton>
