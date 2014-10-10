@@ -7,7 +7,7 @@
             <field name="model" search="[('model', '=', 'stock.shipment.out')]"/>
             <field name="name">MRW</field>
             <field name="file_name">mrw.csv</field>
-            <field eval="True" name="header"/>
+            <field eval="False" name="header"/>
             <field name="separator">;</field>
             <field name="quote">&quot;</field>
             <field name="path">/tmp</field>
@@ -107,6 +107,12 @@
         <record id="file_format_field_franquiciadedestino1" model="file.format.field">
             <field name="name">Franquicia de destino</field>
             <field eval="14" name="sequence"/>
+            <field name="align">left</field>
+            <field name="format" ref="file_format_mrw0"/>
+        </record>
+        <record id="file_format_field_datosadicionales1" model="file.format.field">
+            <field name="name">Datos adicionales</field>
+            <field eval="15" name="sequence"/>
             <field name="align">left</field>
             <field name="format" ref="file_format_mrw0"/>
         </record>
