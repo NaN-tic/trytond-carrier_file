@@ -168,7 +168,7 @@
             <field name="sequence" eval="22"/>
             <field name="name">BULTOS</field>
             <field name="align">left</field>
-            <field name="expression">len($outgoing_moves)</field>
+            <field name="expression">$number_packages or 0</field>
         </record>
         <record id="file_format_field_disertrans_field23" model="file.format.field">
             <field name="format" ref="file_format_disertrans"/>

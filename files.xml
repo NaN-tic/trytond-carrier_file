@@ -329,7 +329,7 @@
             <field eval="5" name="sequence"/>
             <field name="align">left</field>
             <field name="format" ref="file_format_mrw0"/>
-            <field name="expression">$number_of_packages or 0</field>
+            <field name="expression">$number_packages or 0</field>
             <field name="number_format">%d</field>
         </record>
         <record id="file_format_field_fechaderecogida1" model="file.format.field">
