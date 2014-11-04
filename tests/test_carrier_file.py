@@ -7,23 +7,17 @@ from trytond.tests.test_tryton import test_view, test_depends
 
 
 class CarrierFileTestCase(unittest.TestCase):
-    '''
-    Test Carrier File module.
-    '''
+    'Test Carrier File module'
 
     def setUp(self):
         trytond.tests.test_tryton.install_module('carrier_file')
 
     def test0005views(self):
-        '''
-        Test views.
-        '''
+        'Test views'
         test_view('carrier_file')
 
     def test0006depends(self):
-        '''
-        Test depends.
-        '''
+        'Test depends'
         test_depends()
 
 
