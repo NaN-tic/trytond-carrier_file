@@ -3,101 +3,101 @@
      copyright notices and license terms. -->
 <tryton>
     <data>
-        <record id="file_format_disertrans" model="file.format">
+        <record id="file_format_dynamicexpress_complete" model="file.format">
             <field name="model" search="[('model', '=', 'stock.shipment.out')]"/>
-            <field name="name">Disertrans</field>
-            <field name="file_name">disertrans.txt</field>
-            <field name="header" eval="True"/>
-            <field name="separator">|</field>
+            <field name="name">DynamicExpress</field>
+            <field name="file_name">dynamic.txt</field>
+            <field name="header" eval="False"/>
+            <field name="separator"></field>
             <field name="quote"></field>
-            <field name="path">/tmp</field>
+            <field name="path">/mnt/dynamic</field>
         </record>
-        <record id="file_format_field_disertrans_field1" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field1" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="1"/>
             <field name="name">ALBARAN</field>
             <field name="align">left</field>
             <field name="expression">$id</field>
         </record>
-        <record id="file_format_field_disertrans_field2" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field2" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="2"/>
             <field name="name">REFERENCIA</field>
             <field name="align">left</field>
             <field name="expression">$rec_name</field>
         </record>
-        <record id="file_format_field_disertrans_field3" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field3" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="3"/>
             <field name="name">REFERENCIA_CLI</field>
             <field name="align">left</field>
             <field name="expression"></field>
         </record>
-        <record id="file_format_field_disertrans_field4" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field4" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="4"/>
             <field name="name">PORDEN</field>
             <field name="align">left</field>
             <field name="expression">"BCN"</field><!-- Hardcoded -->
         </record>
-        <record id="file_format_field_disertrans_field5" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field5" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="5"/>
             <field name="name">FECHAR</field>
             <field name="align">left</field>
             <field name="expression">$effective_date.strftime('%d/%m/%Y') if $effective_date else ''</field>
         </record>
-        <record id="file_format_field_disertrans_field6" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field6" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="6"/>
             <field name="name">CONDUCR</field>
             <field name="align">left</field>
             <field name="expression"></field>
         </record>
-        <record id="file_format_field_disertrans_field7" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field7" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="7"/>
             <field name="name">CLIENTE</field>
             <field name="align">left</field>
             <field name="expression">"502348"</field><!-- Hardcoded -->
         </record>
-        <record id="file_format_field_disertrans_field8" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field8" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="8"/>
             <field name="name">COD_REMITENTE</field>
             <field name="align">left</field>
             <field name="expression"></field>
         </record>
-        <record id="file_format_field_disertrans_field9" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field9" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="9"/>
             <field name="name">CENTROR</field>
             <field name="align">left</field>
             <field name="expression"></field>
         </record>
-        <record id="file_format_field_disertrans_field10" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field10" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="10"/>
             <field name="name">REMITENTE</field>
             <field name="align">left</field>
             <field name="expression">$company.party.name</field>
         </record>
-        <record id="file_format_field_disertrans_field11" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field11" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="11"/>
             <field name="name">DOMICR</field>
             <field name="align">left</field>
             <field name="expression">$company.address_get().street if $company.addresses else ''</field>
         </record>
-        <record id="file_format_field_disertrans_field12" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field12" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="12"/>
             <field name="name">POBLACR</field>
             <field name="align">left</field>
             <field name="expression">$company.address_get().city if $company.addresses else ''</field>
         </record>
-        <record id="file_format_field_disertrans_field13" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field13" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="13"/>
             <field name="name">POSTALR</field>
             <field name="align">left</field>
@@ -105,57 +105,57 @@
             <field name="fill_character">0</field>
             <field name="expression">$company.address_get().zip if $company.addresses else ''</field>
         </record>
-        <record id="file_format_field_disertrans_field14" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field14" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="14"/>
             <field name="name">PROVR</field>
             <field name="align">left</field>
             <field name="expression">TODO</field>
         </record>
-        <record id="file_format_field_disertrans_field15" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field15" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="15"/>
             <field name="name">FECHAD</field>
             <field name="align">left</field>
             <field name="expression"></field>
         </record>
-        <record id="file_format_field_disertrans_field16" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field16" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="16"/>
             <field name="name">CENTROD</field>
             <field name="align">left</field>
             <field name="expression"></field>
         </record>
-        <record id="file_format_field_disertrans_field17" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field17" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="17"/>
             <field name="name">DESTINATARIO</field>
             <field name="align">left</field>
             <field name="expression">$customer.name</field>
         </record>
-        <record id="file_format_field_disertrans_field18" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field18" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="18"/>
             <field name="name">DOMICD</field>
             <field name="align">left</field>
             <field name="expression">$customer.address_get().street if $customer.addresses else ''</field>
         </record>
-        <record id="file_format_field_disertrans_field19" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field19" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="19"/>
             <field name="name">POBLACD</field>
             <field name="align">left</field>
             <field name="expression">$customer.address_get().city if $customer.addresses else ''</field>
         </record>
-        <record id="file_format_field_disertrans_field20" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field20" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="20"/>
             <field name="name">PROVD</field>
             <field name="align">left</field>
             <field name="expression">TODO</field>
         </record>
-        <record id="file_format_field_disertrans_field21" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field21" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="21"/>
             <field name="name">POSTALD</field>
             <field name="align">left</field>
@@ -163,372 +163,372 @@
             <field name="fill_character">0</field>
             <field name="expression">$customer.address_get().zip if $customer.addresses else ''</field>
         </record>
-        <record id="file_format_field_disertrans_field22" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field22" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="22"/>
             <field name="name">BULTOS</field>
             <field name="align">left</field>
             <field name="expression">$number_packages or 0</field>
         </record>
-        <record id="file_format_field_disertrans_field23" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field23" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="23"/>
             <field name="name">PESO</field>
             <field name="align">left</field>
             <field name="expression">TODO</field>
         </record>
-        <record id="file_format_field_disertrans_field24" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field24" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="24"/>
             <field name="name">TPORTE</field>
             <field name="align">left</field>
             <field name="expression">TODO</field>
         </record>
-        <record id="file_format_field_disertrans_field25" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field25" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="25"/>
             <field name="name">IVA</field>
             <field name="align">left</field>
             <field name="expression">str([t.rate for t in $carrier.carrier_product.customer_taxes_used if t.rate][0]) if $carrier and any(bool(t.rate) for t in $carrier.carrier_product.customer_taxes_used else ''</field>
         </record>
-        <record id="file_format_field_disertrans_field26" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field26" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="26"/>
             <field name="name">ARCHIVO</field>
             <field name="align">left</field>
             <field name="expression"></field>
         </record>
-        <record id="file_format_field_disertrans_field27" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field27" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="27"/>
             <field name="name">FECHA_DEV_MEN</field>
             <field name="align">left</field>
             <field name="expression"></field>
         </record>
-        <record id="file_format_field_disertrans_field28" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field28" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="28"/>
             <field name="name">PLAZA_GRA</field>
             <field name="align">left</field>
             <field name="expression">"BCN"</field><!-- Hardcoded -->
         </record>
-        <record id="file_format_field_disertrans_field29" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field29" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="29"/>
             <field name="name">FECHA_GRA</field>
             <field name="align">left</field>
             <field name="expression">$effective_date.strftime('%d/%m/%Y') if $effective_date else ''</field>
         </record>
-        <record id="file_format_field_disertrans_field30" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field30" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="30"/>
             <field name="name">USUARIO_ALTA</field>
             <field name="align">left</field>
             <field name="expression">1</field><!-- Hardcoded -->
         </record>
-        <record id="file_format_field_disertrans_field31" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field31" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="31"/>
             <field name="name">FIRMA</field>
             <field name="align">left</field>
             <field name="expression"></field>
         </record>
-        <record id="file_format_field_disertrans_field32" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field32" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="32"/>
             <field name="name">FECHA_ENTRADA</field>
             <field name="align">left</field>
             <field name="expression"></field>
         </record>
-        <record id="file_format_field_disertrans_field33" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field33" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="33"/>
             <field name="name">CHOFER_LECTURA</field>
             <field name="align">left</field>
             <field name="expression"></field>
         </record>
-        <record id="file_format_field_disertrans_field34" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field34" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="34"/>
             <field name="name">RUTA_ARRASTRE</field>
             <field name="align">left</field>
             <field name="expression"></field>
         </record>
-        <record id="file_format_field_disertrans_field35" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field35" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="35"/>
             <field name="name">FECHA_MOD</field>
             <field name="align">left</field>
             <field name="expression">$write_date.strftime('%d/%m/%Y')</field>
         </record>
-        <record id="file_format_field_disertrans_field36" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field36" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="36"/>
             <field name="name">USUARIO_MOD</field>
             <field name="align">left</field>
             <field name="expression"></field>
         </record>
-        <record id="file_format_field_disertrans_field37" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field37" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="37"/>
             <field name="name">REEMBOLSO</field>
             <field name="align">left</field>
             <field name="expression">TODO</field>
         </record>
-        <record id="file_format_field_disertrans_field38" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field38" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="38"/>
             <field name="name">DEBIDO</field>
             <field name="align">left</field>
             <field name="expression">TODO</field>
         </record>
-        <record id="file_format_field_disertrans_field39" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field39" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="39"/>
             <field name="name">ESMENSAJERIA</field>
             <field name="align">left</field>
             <field name="expression">TODO</field>
         </record>
-        <record id="file_format_field_disertrans_field40" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field40" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="40"/>
             <field name="name">SERVICIO</field>
             <field name="align">left</field>
             <field name="expression">TODO</field>
         </record>
-        <record id="file_format_field_disertrans_field41" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field41" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="41"/>
             <field name="name">OBSERVACIONES</field>
             <field name="align">left</field>
             <field name="expression">$customer.external_observations if $customer.external_observations else ''</field>
         </record>
-        <record id="file_format_field_disertrans_field42" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field42" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="42"/>
             <field name="name">MONEDA</field>
             <field name="align">left</field>
             <field name="expression">1</field><!-- Hardcoded -->
         </record>
-        <record id="file_format_field_disertrans_field43" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field43" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="43"/>
             <field name="name">AGENTE_ORG</field>
             <field name="align">left</field>
             <field name="expression">61</field><!-- Hardcoded -->
         </record>
-        <record id="file_format_field_disertrans_field44" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field44" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="44"/>
             <field name="name">AGENTE_DES</field>
             <field name="align">left</field>
             <field name="expression">TODO</field>
         </record>
-        <record id="file_format_field_disertrans_field45" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field45" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="45"/>
             <field name="name">INCIDENCIA</field>
             <field name="align">left</field>
             <field name="expression"></field>
         </record>
-        <record id="file_format_field_disertrans_field46" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field46" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="46"/>
             <field name="name">TARIFA_PRO</field>
             <field name="align">left</field>
             <field name="expression">TODO</field>
         </record>
-        <record id="file_format_field_disertrans_field47" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field47" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="47"/>
             <field name="name">FACT_CLI</field>
             <field name="align">left</field>
             <field name="expression">TODO</field>
         </record>
-        <record id="file_format_field_disertrans_field48" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field48" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="48"/>
             <field name="name">FACT_PRO</field>
             <field name="align">left</field>
             <field name="expression">TODO</field>
         </record>
-        <record id="file_format_field_disertrans_field49" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field49" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="49"/>
             <field name="name">RECOGIDA</field>
             <field name="align">left</field>
             <field name="expression"></field>
         </record>
-        <record id="file_format_field_disertrans_field50" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field50" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="50"/>
             <field name="name">TELEFONOD</field>
             <field name="align">left</field>
             <field name="expression">$customer.phone or $customer.mobile or ''</field>
         </record>
-        <record id="file_format_field_disertrans_field51" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field51" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="51"/>
             <field name="name">DEBIDOM</field>
             <field name="align">left</field>
             <field name="expression">TODO</field>
         </record>
-        <record id="file_format_field_disertrans_field52" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field52" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="52"/>
             <field name="name">IDPUEBLOD</field>
             <field name="align">left</field>
             <field name="expression">TODO</field>
         </record>
-        <record id="file_format_field_disertrans_field53" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field53" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="53"/>
             <field name="name">MEDIDAS</field>
             <field name="align">left</field>
             <field name="expression"></field>
         </record>
-        <record id="file_format_field_disertrans_field54" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field54" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="54"/>
             <field name="name">DESEMBOLSO</field>
             <field name="align">left</field>
             <field name="expression">TODO</field>
         </record>
-        <record id="file_format_field_disertrans_field55" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field55" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="55"/>
             <field name="name">FECHA_TRA</field>
             <field name="align">left</field>
             <field name="expression">TODO</field>
         </record>
-        <record id="file_format_field_disertrans_field56" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field56" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="56"/>
             <field name="name">CENTRO_ORG</field>
             <field name="align">left</field>
             <field name="expression">TODO</field>
         </record>
-        <record id="file_format_field_disertrans_field57" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field57" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="57"/>
             <field name="name">CENTRO_DES</field>
             <field name="align">left</field>
             <field name="expression">TODO</field>
         </record>
-        <record id="file_format_field_disertrans_field58" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field58" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="58"/>
             <field name="name">CENTRO_ORD</field>
             <field name="align">left</field>
             <field name="expression">TODO</field>
         </record>
-        <record id="file_format_field_disertrans_field59" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field59" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="59"/>
             <field name="name">AGENTE_ORD</field>
             <field name="align">left</field>
             <field name="expression">TODO</field>
         </record>
-        <record id="file_format_field_disertrans_field60" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field60" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="60"/>
             <field name="name">CANALIZACION</field>
             <field name="align">left</field>
             <field name="expression"></field>
         </record>
-        <record id="file_format_field_disertrans_field61" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field61" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="61"/>
             <field name="name">REFERENCIA_DEV</field>
             <field name="align">left</field>
             <field name="expression"></field>
         </record>
-        <record id="file_format_field_disertrans_field62" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field62" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="62"/>
             <field name="name">DOMICD2</field>
             <field name="align">left</field>
             <field name="expression"></field>
         </record>
-        <record id="file_format_field_disertrans_field63" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field63" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="63"/>
             <field name="name">CONTACTO</field>
             <field name="align">left</field>
             <field name="expression"></field>
         </record>
-        <record id="file_format_field_disertrans_field64" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field64" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="64"/>
             <field name="name">MOVIL</field>
             <field name="align">left</field>
             <field name="expression"></field>
         </record>
-        <record id="file_format_field_disertrans_field65" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field65" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="65"/>
             <field name="name">EMAILD</field>
             <field name="align">left</field>
             <field name="expression"></field>
         </record>
-        <record id="file_format_field_disertrans_field66" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field66" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="66"/>
             <field name="name">PAIS_ORG</field>
             <field name="align">left</field>
             <field name="expression"></field>
         </record>
-        <record id="file_format_field_disertrans_field67" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field67" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="67"/>
             <field name="name">PAIS_DES</field>
             <field name="align">left</field>
             <field name="expression"></field>
         </record>
-        <record id="file_format_field_disertrans_field68" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field68" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="68"/>
             <field name="name">IDGRUPO</field>
             <field name="align">left</field>
             <field name="expression"></field>
         </record>
-        <record id="file_format_field_disertrans_field69" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field69" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="69"/>
             <field name="name">IDESTADO1</field>
             <field name="align">left</field>
             <field name="expression"></field>
         </record>
-        <record id="file_format_field_disertrans_field70" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field70" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="70"/>
             <field name="name">IDESTADO2</field>
             <field name="align">left</field>
             <field name="expression"></field>
         </record>
-        <record id="file_format_field_disertrans_field71" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field71" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="71"/>
             <field name="name">PESOV</field>
             <field name="align">left</field>
             <field name="expression"></field>
         </record>
-        <record id="file_format_field_disertrans_field72" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field72" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="72"/>
             <field name="name">PESO_ORIGINAL</field>
             <field name="align">left</field>
             <field name="expression">TODO</field>
         </record>
-        <record id="file_format_field_disertrans_field73" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field73" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="73"/>
             <field name="name">LIBRE1</field>
             <field name="align">left</field>
             <field name="expression"></field>
         </record>
-        <record id="file_format_field_disertrans_field74" model="file.format.field">
-            <field name="format" ref="file_format_disertrans"/>
+        <record id="file_format_field_dynamicexpress_complete_field74" model="file.format.field">
+            <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="74"/>
             <field name="name">RED</field>
             <field name="align">left</field>
