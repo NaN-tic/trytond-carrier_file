@@ -1,3 +1,5 @@
+* Add state field and remove harcoded path from templates.
+
 Version 3.4.0 - 2014-11-03
 
 Version 3.2.0 - 2014-06-02

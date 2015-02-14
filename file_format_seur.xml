@@ -10,7 +10,7 @@
             <field eval="True" name="header"/>
             <field name="separator">,</field>
             <field name="file_name">res.txt</field>
-            <field name="path">/tmp</field>
+            <field name="state">disabled</field>
         </record>
         <record id="file_format_field_nombreempresa1" model="file.format.field">
             <field name="name">Nombre Empresa</field>

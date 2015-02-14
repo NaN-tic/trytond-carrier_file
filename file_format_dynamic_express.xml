@@ -10,7 +10,7 @@
             <field name="header" eval="False"/>
             <field name="separator"></field>
             <field name="quote"></field>
-            <field name="path">/mnt/dynamic</field>
+            <field name="state">disabled</field>
         </record>
         <record id="file_format_field_dynamicexpress_field1" model="file.format.field">
             <field name="format" ref="file_format_dynamicexpress"/>
