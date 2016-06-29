@@ -3,22 +3,12 @@
 #this repository contains the full copyright notices and license terms.
 import unittest
 import trytond.tests.test_tryton
-from trytond.tests.test_tryton import test_view, test_depends
+from trytond.tests.test_tryton import ModuleTestCase
 
 
-class CarrierFileTestCase(unittest.TestCase):
+class CarrierFileTestCase(ModuleTestCase):
     'Test Carrier File module'
-
-    def setUp(self):
-        trytond.tests.test_tryton.install_module('carrier_file')
-
-    def test0005views(self):
-        'Test views'
-        test_view('carrier_file')
-
-    def test0006depends(self):
-        'Test depends'
-        test_depends()
+    module = 'carrier_file'
 
 
 def suite():
