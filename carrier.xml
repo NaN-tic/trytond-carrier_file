@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0"?>
 <tryton>
     <data>
-
         <record model="ir.ui.view" id="carrier_file_wizard_start_view_form">
             <field name="name">carrier_file_wizard_start_form</field>
             <field name="model">carrier.file.wizard.start</field>
@@ -22,7 +21,6 @@
                 <field name="inherit" ref="stock.shipment_out_view_form" />
         </record>
 
-
         <record model="ir.action.wizard" id="act_generate_carrier_files">
             <field name="name">Generate Carrier Files</field>
             <field name="wiz_name">carrier.file.wizard</field>
@@ -33,4 +31,3 @@
 
     </data>
 </tryton>
-

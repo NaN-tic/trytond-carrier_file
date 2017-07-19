@@ -2,16 +2,16 @@
 # copyright notices and license terms.
 from trytond.model import ModelView, fields
 from trytond.pool import Pool, PoolMeta
-from trytond.pyson import Eval, Not, And, Bool
+from trytond.pyson import Eval
 from trytond.wizard import Wizard, StateView, StateTransition, Button
 
 __all__ = ['Carrier', 'CarrierFileWizardStart', 'CarrierFileWizard',
     'ShipmentOut']
 
-__metaclass__ = PoolMeta
 
 
-class Carrier():
+class Carrier:
+    __metaclass__ = PoolMeta
     __name__ = 'carrier'
 
     format = fields.Many2One('file.format', 'File Format')
@@ -89,7 +89,8 @@ class CarrierFileWizard(Wizard):
         return 'end'
 
 
-class ShipmentOut():
+class ShipmentOut:
+    __metaclass__ = PoolMeta
     __name__ = 'stock.shipment.out'
 
     @classmethod

@@ -1,16 +1,15 @@
 #The COPYRIGHT file at the top level of this repository contains the full
 #copyright notices and license terms.
-
 from trytond.pool import Pool
-from .carrier import *
+from . import carrier
 
 
 def register():
     Pool.register(
-        Carrier,
-        CarrierFileWizardStart,
-        ShipmentOut,
+        carrier.Carrier,
+        carrier.CarrierFileWizardStart,
+        carrier.ShipmentOut,
         module='carrier_file', type_='model')
     Pool.register(
-        CarrierFileWizard,
+        carrier.CarrierFileWizard,
         module='carrier_file', type_='wizard')
