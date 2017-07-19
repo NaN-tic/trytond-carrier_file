@@ -24,7 +24,7 @@
             <field eval="2" name="sequence"/>
             <field name="align">left</field>
             <field name="format" ref="file_format_mrw0"/>
-            <field name="expression">$rec_name</field>
+            <field name="expression">{{ record.rec_name }}</field>
         </record>
         <record id="file_format_field_referenciadebultocliente1" model="file.format.field">
             <field name="name">Referencia de bulto cliente</field>
@@ -37,15 +37,15 @@
             <field eval="4" name="sequence"/>
             <field name="align">left</field>
             <field name="format" ref="file_format_mrw0"/>
-            <field name="expression">1</field>
-            <field name="number_format">%d</field>
+            <field name="expression">{{ record.rec_name }}</field>
+            <field name="number_format"></field>
         </record>
         <record id="file_format_field_totalbultosdelenvio1" model="file.format.field">
             <field name="name">Total bultos del envio</field>
             <field eval="5" name="sequence"/>
             <field name="align">left</field>
             <field name="format" ref="file_format_mrw0"/>
-            <field name="expression">$number_packages or 0</field>
+            <field name="expression">{{ record.number_packages and record.number_packages|int or 0 }}</field>
             <field name="number_format">%d</field>
         </record>
         <record id="file_format_field_fechaderecogida1" model="file.format.field">
@@ -53,56 +53,56 @@
             <field eval="6" name="sequence"/>
             <field name="align">left</field>
             <field name="format" ref="file_format_mrw0"/>
-            <field name="expression">$effective_date and $effective_date.strftime("%Y%m%d") or ($planned_date and $planned_date.strftime("%Y%m%d") or '')</field>
+            <field name="expression">{{ record.effective_date and record.effective_date.strftime("%Y%m%d") or (record.planned_date and record.planned_date.strftime("%Y%m%d") or '') }}</field>
         </record>
         <record id="file_format_field_observaciondeentrega1" model="file.format.field">
             <field name="name">Observacion de entrega</field>
             <field eval="7" name="sequence"/>
             <field name="align">left</field>
             <field name="format" ref="file_format_mrw0"/>
-            <field name="expression">$carrier_tracking_ref or ''</field>
+            <field name="expression">{{ record.carrier_tracking_ref or '' }}</field>
         </record>
         <record id="file_format_field_nombreapellidoentrega1" model="file.format.field">
             <field name="name">Nombre Apellido Entrega</field>
             <field eval="8" name="sequence"/>
             <field name="align">left</field>
             <field name="format" ref="file_format_mrw0"/>
-            <field name="expression">$delivery_address.name.encode('utf-8') or $customer.rec_name.encode('utf-8') or ''</field>
+            <field name="expression">{{ record.delivery_address.name or record.customer.rec_name or '' }}</field>
         </record>
         <record id="file_format_field_direccionentrega1" model="file.format.field">
             <field name="name">Direccion Entrega</field>
             <field eval="9" name="sequence"/>
             <field name="align">left</field>
             <field name="format" ref="file_format_mrw0"/>
-            <field name="expression">$delivery_address.street</field>
+            <field name="expression">{{ record.delivery_address.street }}</field>
         </record>
         <record id="file_format_field_codigopostal1" model="file.format.field">
             <field name="name">Codigo Postal</field>
             <field eval="10" name="sequence"/>
             <field name="align">left</field>
             <field name="format" ref="file_format_mrw0"/>
-            <field name="expression">$delivery_address.zip or 00000</field>
+            <field name="expression">{{ record.delivery_address.zip or 00000 }}</field>
         </record>
         <record id="file_format_field_poblacion1" model="file.format.field">
             <field name="name">Poblacion</field>
             <field eval="11" name="sequence"/>
             <field name="align">left</field>
             <field name="format" ref="file_format_mrw0"/>
-            <field name="expression">$delivery_address.city or ''</field>
+            <field name="expression">{{ record.delivery_address.city or '' }}</field>
         </record>
         <record id="file_format_field_codigoisopais1" model="file.format.field">
             <field name="name">Codigo ISO Pais</field>
             <field eval="12" name="sequence"/>
             <field name="align">left</field>
             <field name="format" ref="file_format_mrw0"/>
-            <field name="expression">$delivery_address.country.code or 'ES'</field>
+            <field name="expression">{{ record.delivery_address.country.code or 'ES' }}</field>
         </record>
         <record id="file_format_field_telefonodestino1" model="file.format.field">
             <field name="name">Telefono destino</field>
             <field eval="13" name="sequence"/>
             <field name="align">left</field>
             <field name="format" ref="file_format_mrw0"/>
-            <field name="expression">$customer.phone or ''</field>
+            <field name="expression">{{ record.customer.phone or '' }}</field>
         </record>
         <record id="file_format_field_franquiciadedestino1" model="file.format.field">
             <field name="name">Franquicia de destino</field>
