@@ -17,7 +17,7 @@
             <field name="sequence" eval="1"/>
             <field name="name">ORDERID</field>
             <field name="align">left</field>
-            <field name="expression">$id</field>
+            <field name="expression">{{ record.id }}</field>
         </record>
         <record id="file_format_field_ups_field2" model="file.format.field">
             <field name="format" ref="file_format_ups"/>
@@ -59,49 +59,49 @@
             <field name="sequence" eval="7"/>
             <field name="name">SHIPMENTINFORMATION_NOTIFICATIONRECIPIENT1FAXOREMAIL</field>
             <field name="align">left</field>
-            <field name="expression">$customer.email or ''</field>
+            <field name="expression">{{ record.customer.email or '' }}</field>
         </record>
         <record id="file_format_field_ups_field8" model="file.format.field">
             <field name="format" ref="file_format_ups"/>
             <field name="sequence" eval="8"/>
             <field name="name">SHIPTO_COMPANYORNAME</field>
             <field name="align">left</field>
-            <field name="expression">$customer.name</field>
+            <field name="expression">{{ record.customer.name }}</field>
         </record>
         <record id="file_format_field_ups_field9" model="file.format.field">
             <field name="format" ref="file_format_ups"/>
             <field name="sequence" eval="9"/>
             <field name="name">SHIPTO_STREETADDRESS</field>
             <field name="align">left</field>
-            <field name="expression">$delivery_address.street</field>
+            <field name="expression">{{ record.delivery_address.street or '' }}</field>
         </record>
         <record id="file_format_field_ups_field10" model="file.format.field">
             <field name="format" ref="file_format_ups"/>
             <field name="sequence" eval="10"/>
             <field name="name">SHIPTO_ROOMFLOORADDRESS2</field>
             <field name="align">left</field>
-            <field name="expression">$delivery_address.streetbis</field>
+            <field name="expression">{{ record.delivery_address.streetbis or '' }}</field>
         </record>
         <record id="file_format_field_ups_field11" model="file.format.field">
             <field name="format" ref="file_format_ups"/>
             <field name="sequence" eval="11"/>
             <field name="name">SHIPTO_CITY</field>
             <field name="align">left</field>
-            <field name="expression">$delivery_address.city</field>
+            <field name="expression">{{ record.delivery_address.city or '' }}</field>
         </record>
         <record id="file_format_field_ups_field12" model="file.format.field">
             <field name="format" ref="file_format_ups"/>
             <field name="sequence" eval="12"/>
             <field name="name">SHIPTO_STATE</field>
             <field name="align">left</field>
-            <field name="expression">$delivery_address.subdivision.name if $delivery_address.subdivision else ''</field>
+            <field name="expression">{{ record.delivery_address.subdivision and record.delivery_address.subdivision.name or '' }}</field>
         </record>
         <record id="file_format_field_ups_field13" model="file.format.field">
             <field name="format" ref="file_format_ups"/>
             <field name="sequence" eval="13"/>
             <field name="name">SHIPTO_COUNTRY</field>
             <field name="align">left</field>
-            <field name="expression">$delivery_address.country.name if delivery_address.country</field>
+            <field name="expression">{{ record.delivery_address.country and record.delivery_address.country.name or '' }}</field>
         </record>
         <record id="file_format_field_ups_field14" model="file.format.field">
             <field name="format" ref="file_format_ups"/>
@@ -110,14 +110,14 @@
             <field name="align">left</field>
             <field name="length">5</field>
             <field name="fill_character">0</field>
-            <field name="expression">$delivery_address.zip</field>
+            <field name="expression">{{ record.delivery_address.zip or '' }}</field>
         </record>
         <record id="file_format_field_ups_field15" model="file.format.field">
             <field name="format" ref="file_format_ups"/>
             <field name="sequence" eval="15"/>
             <field name="name">SHIPTO_TELEPHONE</field>
             <field name="align">left</field>
-            <field name="expression">$customer.phone or $customer.mobile or ''</field>
+            <field name="expression">{{ record.customer.phone or record.customer.mobile or '' }}</field>
         </record>
         <record id="file_format_field_ups_field16" model="file.format.field">
             <field name="format" ref="file_format_ups"/>
@@ -145,14 +145,14 @@
             <field name="sequence" eval="19"/>
             <field name="name">PACKAGE_REFERENCE1</field>
             <field name="align">left</field>
-            <field name="expression">$rec_name</field>
+            <field name="expression">{{ record.rec_name }}</field>
         </record>
         <record id="file_format_field_ups_field20" model="file.format.field">
             <field name="format" ref="file_format_ups"/>
             <field name="sequence" eval="20"/>
             <field name="name">PACKAGE_REFERENCE2</field>
             <field name="align">left</field>
-            <field name="expression">$reference</field>
+            <field name="expression">{{ record.reference }}</field>
         </record>
         <record id="file_format_field_ups_field21" model="file.format.field">
             <field name="format" ref="file_format_ups"/>

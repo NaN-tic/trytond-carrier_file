@@ -5,7 +5,7 @@
     <data>
         <record id="file_format_dynamicexpress_complete" model="file.format">
             <field name="model" search="[('model', '=', 'stock.shipment.out')]"/>
-            <field name="name">DynamicExpress</field>
+            <field name="name">DynamicExpress Complete</field>
             <field name="file_name">dynamic.txt</field>
             <field name="header" eval="False"/>
             <field name="separator"></field>
@@ -17,14 +17,14 @@
             <field name="sequence" eval="1"/>
             <field name="name">ALBARAN</field>
             <field name="align">left</field>
-            <field name="expression">$id</field>
+            <field name="expression">{{ record.id }}</field>
         </record>
         <record id="file_format_field_dynamicexpress_complete_field2" model="file.format.field">
             <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="2"/>
             <field name="name">REFERENCIA</field>
             <field name="align">left</field>
-            <field name="expression">$rec_name</field>
+            <field name="expression">{{ record.rec_name }}</field>
         </record>
         <record id="file_format_field_dynamicexpress_complete_field3" model="file.format.field">
             <field name="format" ref="file_format_dynamicexpress_complete"/>
@@ -38,14 +38,14 @@
             <field name="sequence" eval="4"/>
             <field name="name">PORDEN</field>
             <field name="align">left</field>
-            <field name="expression">"BCN"</field><!-- Hardcoded -->
+            <field name="expression">BCN</field><!-- Hardcoded -->
         </record>
         <record id="file_format_field_dynamicexpress_complete_field5" model="file.format.field">
             <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="5"/>
             <field name="name">FECHAR</field>
             <field name="align">left</field>
-            <field name="expression">$effective_date.strftime('%d/%m/%Y') if $effective_date else ''</field>
+            <field name="expression">{{ record.effective_date and record.effective_date.strftime('%d/%m/%Y') or '' }}</field>
         </record>
         <record id="file_format_field_dynamicexpress_complete_field6" model="file.format.field">
             <field name="format" ref="file_format_dynamicexpress_complete"/>
@@ -59,7 +59,7 @@
             <field name="sequence" eval="7"/>
             <field name="name">CLIENTE</field>
             <field name="align">left</field>
-            <field name="expression">"502348"</field><!-- Hardcoded -->
+            <field name="expression">502348</field><!-- Hardcoded -->
         </record>
         <record id="file_format_field_dynamicexpress_complete_field8" model="file.format.field">
             <field name="format" ref="file_format_dynamicexpress_complete"/>
@@ -80,21 +80,21 @@
             <field name="sequence" eval="10"/>
             <field name="name">REMITENTE</field>
             <field name="align">left</field>
-            <field name="expression">$company.party.name</field>
+            <field name="expression">{{ record.company.party.name }}</field>
         </record>
         <record id="file_format_field_dynamicexpress_complete_field11" model="file.format.field">
             <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="11"/>
             <field name="name">DOMICR</field>
             <field name="align">left</field>
-            <field name="expression">$company.address_get().street if $company.addresses else ''</field>
+            <field name="expression">{{ record.company.party.address_get() and record.company.party.address_get().street or '' }}</field>
         </record>
         <record id="file_format_field_dynamicexpress_complete_field12" model="file.format.field">
             <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="12"/>
             <field name="name">POBLACR</field>
             <field name="align">left</field>
-            <field name="expression">$company.address_get().city if $company.addresses else ''</field>
+            <field name="expression">{{ record.company.party.address_get() and record.company.party.address_get().city or '' }}</field>
         </record>
         <record id="file_format_field_dynamicexpress_complete_field13" model="file.format.field">
             <field name="format" ref="file_format_dynamicexpress_complete"/>
@@ -103,7 +103,7 @@
             <field name="align">left</field>
             <field name="length">5</field>
             <field name="fill_character">0</field>
-            <field name="expression">$company.address_get().zip if $company.addresses else ''</field>
+            <field name="expression">{{ record.company.party.address_get() and record.company.party.address_get().zip or '' }}</field>
         </record>
         <record id="file_format_field_dynamicexpress_complete_field14" model="file.format.field">
             <field name="format" ref="file_format_dynamicexpress_complete"/>
@@ -131,21 +131,21 @@
             <field name="sequence" eval="17"/>
             <field name="name">DESTINATARIO</field>
             <field name="align">left</field>
-            <field name="expression">$customer.name</field>
+            <field name="expression">{{ record.customer.name }}</field>
         </record>
         <record id="file_format_field_dynamicexpress_complete_field18" model="file.format.field">
             <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="18"/>
             <field name="name">DOMICD</field>
             <field name="align">left</field>
-            <field name="expression">$customer.address_get().street if $customer.addresses else ''</field>
+            <field name="expression">{{ record.delivery_address.street or '' }}</field>
         </record>
         <record id="file_format_field_dynamicexpress_complete_field19" model="file.format.field">
             <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="19"/>
             <field name="name">POBLACD</field>
             <field name="align">left</field>
-            <field name="expression">$customer.address_get().city if $customer.addresses else ''</field>
+            <field name="expression">{{ record.delivery_address.city or '' }}</field>
         </record>
         <record id="file_format_field_dynamicexpress_complete_field20" model="file.format.field">
             <field name="format" ref="file_format_dynamicexpress_complete"/>
@@ -161,14 +161,14 @@
             <field name="align">left</field>
             <field name="length">5</field>
             <field name="fill_character">0</field>
-            <field name="expression">$customer.address_get().zip if $customer.addresses else ''</field>
+            <field name="expression">{{ record.delivery_address.zip or '' }}</field>
         </record>
         <record id="file_format_field_dynamicexpress_complete_field22" model="file.format.field">
             <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="22"/>
             <field name="name">BULTOS</field>
             <field name="align">left</field>
-            <field name="expression">$number_packages or 0</field>
+            <field name="expression">{{ record.number_packages and record.number_packages|int or 0 }}</field>
         </record>
         <record id="file_format_field_dynamicexpress_complete_field23" model="file.format.field">
             <field name="format" ref="file_format_dynamicexpress_complete"/>
@@ -189,7 +189,7 @@
             <field name="sequence" eval="25"/>
             <field name="name">IVA</field>
             <field name="align">left</field>
-            <field name="expression">str([t.rate for t in $carrier.carrier_product.customer_taxes_used if t.rate][0]) if $carrier and any(bool(t.rate) for t in $carrier.carrier_product.customer_taxes_used else ''</field>
+            <field name="expression">{% for t in record.carrier.carrier_product.customer_taxes_used %}{{ tax.rate * 100 }}, {% endfor %}</field>
         </record>
         <record id="file_format_field_dynamicexpress_complete_field26" model="file.format.field">
             <field name="format" ref="file_format_dynamicexpress_complete"/>
@@ -210,14 +210,14 @@
             <field name="sequence" eval="28"/>
             <field name="name">PLAZA_GRA</field>
             <field name="align">left</field>
-            <field name="expression">"BCN"</field><!-- Hardcoded -->
+            <field name="expression">BCN</field><!-- Hardcoded -->
         </record>
         <record id="file_format_field_dynamicexpress_complete_field29" model="file.format.field">
             <field name="format" ref="file_format_dynamicexpress_complete"/>
             <field name="sequence" eval="29"/>
             <field name="name">FECHA_GRA</field>
             <field name="align">left</field>
-            <field name="expression">$effective_date.strftime('%d/%m/%Y') if $effective_date else ''</field>
+            <field name="expression">{{ record.effective_date and record.effective_date.strftime('%d/%m/%Y') or '' }}</field>
         </record>
         <record id="file_format_field_dynamicexpress_complete_field30" model="file.format.field">
             <field name="format" ref="file_format_dynamicexpress_complete"/>
@@ -259,7 +259,7 @@
             <field name="sequence" eval="35"/>
             <field name="name">FECHA_MOD</field>
             <field name="align">left</field>
-            <field name="expression">$write_date.strftime('%d/%m/%Y')</field>
+            <field name="expression">{{ record.write_date.strftime('%d/%m/%Y') }}</field>
         </record>
         <record id="file_format_field_dynamicexpress_complete_field36" model="file.format.field">
             <field name="format" ref="file_format_dynamicexpress_complete"/>
@@ -301,7 +301,7 @@
             <field name="sequence" eval="41"/>
             <field name="name">OBSERVACIONES</field>
             <field name="align">left</field>
-            <field name="expression">$customer.external_observations if $customer.external_observations else ''</field>
+            <field name="expression">{{ record.customer.external_observations or '' }}</field>
         </record>
         <record id="file_format_field_dynamicexpress_complete_field42" model="file.format.field">
             <field name="format" ref="file_format_dynamicexpress_complete"/>
@@ -364,7 +364,7 @@
             <field name="sequence" eval="50"/>
             <field name="name">TELEFONOD</field>
             <field name="align">left</field>
-            <field name="expression">$customer.phone or $customer.mobile or ''</field>
+            <field name="expression">{{ record.customer.phone or record.customer.mobile or '' }}</field>
         </record>
         <record id="file_format_field_dynamicexpress_complete_field51" model="file.format.field">
             <field name="format" ref="file_format_dynamicexpress_complete"/>

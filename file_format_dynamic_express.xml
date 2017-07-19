@@ -19,7 +19,7 @@
             <field name="align">right</field>
             <field name="length">15</field>
             <field name="fill_character"> </field>
-            <field name="expression">$rec_name</field>
+            <field name="expression">{{ record.rec_name }}</field>
         </record>
         <record id="file_format_field_dynamicexpress_field2" model="file.format.field">
             <field name="format" ref="file_format_dynamicexpress"/>
@@ -28,7 +28,7 @@
             <field name="align">right</field>
             <field name="length">45</field>
             <field name="fill_character"> </field>
-            <field name="expression">$customer.name</field>
+            <field name="expression">{{ record.customer.name }}</field>
         </record>
         <record id="file_format_field_dynamicexpress_field3" model="file.format.field">
             <field name="format" ref="file_format_dynamicexpress"/>
@@ -37,7 +37,7 @@
             <field name="align">right</field>
             <field name="length">45</field>
             <field name="fill_character"> </field>
-            <field name="expression">($delivery_address.street + (' ' + $delivery_address.streetbis) if $delivery_address.streetbis else '') if $delivery_address.street else ''</field>
+            <field name="expression">{{ record.delivery_address.street or '' }}</field>
         </record>
         <record id="file_format_field_dynamicexpress_field4" model="file.format.field">
             <field name="format" ref="file_format_dynamicexpress"/>
@@ -46,7 +46,7 @@
             <field name="align">right</field>
             <field name="length">35</field>
             <field name="fill_character"> </field>
-            <field name="expression">$delivery_address.city if $delivery_address.city else ''</field>
+            <field name="expression">{{ record.delivery_address.city or '' }}</field>
         </record>
         <record id="file_format_field_dynamicexpress_field5" model="file.format.field">
             <field name="format" ref="file_format_dynamicexpress"/>
@@ -55,7 +55,7 @@
             <field name="align">right</field>
             <field name="length">5</field>
             <field name="fill_character">0</field>
-            <field name="expression">$delivery_address.zip if $delivery_address.zip else ''</field>
+            <field name="expression">{{ record.delivery_address.zip or '' }}</field>
         </record>
         <record id="file_format_field_dynamicexpress_field6" model="file.format.field">
             <field name="format" ref="file_format_dynamicexpress"/>
@@ -64,7 +64,7 @@
             <field name="align">right</field>
             <field name="length">2</field>
             <field name="fill_character"> </field>
-            <field name="expression">$delivery_address.country.code if $delivery_address.country else ''</field>
+            <field name="expression">{{ record.delivery_address.country and record.delivery_address.country.code or '' }}</field>
         </record>
         <record id="file_format_field_dynamicexpress_field7" model="file.format.field">
             <field name="format" ref="file_format_dynamicexpress"/>
@@ -73,7 +73,7 @@
             <field name="align">right</field>
             <field name="length">45</field>
             <field name="fill_character"> </field>
-            <field name="expression">$delivery_address.name if $delivery_address.name else ''</field>
+            <field name="expression">{{ record.delivery_address.name or '' }}</field>
         </record>
         <record id="file_format_field_dynamicexpress_field8" model="file.format.field">
             <field name="format" ref="file_format_dynamicexpress"/>
@@ -82,7 +82,7 @@
             <field name="align">right</field>
             <field name="length">9</field>
             <field name="fill_character"> </field>
-            <field name="expression">$customer.phone if $customer.phone else ''</field>
+            <field name="expression">{{ record.customer.phone or '' }}</field>
         </record>
         <record id="file_format_field_dynamicexpress_field9" model="file.format.field">
             <field name="format" ref="file_format_dynamicexpress"/>
@@ -91,7 +91,7 @@
             <field name="align">right</field>
             <field name="length">9</field>
             <field name="fill_character"> </field>
-            <field name="expression">$customer.mobile if $customer.mobile else ''</field>
+            <field name="expression">{{ record.customer.mobile or '' }}</field>
         </record>
         <record id="file_format_field_dynamicexpress_field10" model="file.format.field">
             <field name="format" ref="file_format_dynamicexpress"/>
@@ -100,7 +100,7 @@
             <field name="align">right</field>
             <field name="length">75</field>
             <field name="fill_character"> </field>
-            <field name="expression">$customer.email or ''</field>
+            <field name="expression">{{ record.customer.email or '' }}</field>
         </record>
         <record id="file_format_field_dynamicexpress_field11" model="file.format.field">
             <field name="format" ref="file_format_dynamicexpress"/>
@@ -109,7 +109,7 @@
             <field name="align">right</field>
             <field name="length">5</field>
             <field name="fill_character"> </field>
-            <field name="expression">$number_packages or 0</field>
+            <field name="expression">{{ record.number_packages and record.number_packages|int or 0 }}</field>
         </record>
         <record id="file_format_field_dynamicexpress_field12" model="file.format.field">
             <field name="format" ref="file_format_dynamicexpress"/>
@@ -127,7 +127,7 @@
             <field name="align">right</field>
             <field name="length">50</field>
             <field name="fill_character"> </field>
-            <field name="expression">$customer.external_observations if $customer.external_observations else ''</field>
+            <field name="expression">{{ record.customer.external_observations or '' }}</field>
         </record>
     </data>
 </tryton>

@@ -16,7 +16,7 @@
             <field eval="40" name="length"/>
             <field name="fill_character"> </field>
             <field name="format" ref="file_format_tipsa0"/>
-            <field name="expression">$customer.rec_name</field>
+            <field name="expression">{{ record.customer.rec_name }}</field>
         </record>
         <record id="file_format_field_telefono0" model="file.format.field">
             <field name="name">Telefono</field>
@@ -25,7 +25,7 @@
             <field eval="15" name="length"/>
             <field name="fill_character"> </field>
             <field name="format" ref="file_format_tipsa0"/>
-            <field name="expression">$customer.phone</field>
+            <field name="expression">{{ record.customer.phone or '' }}</field>
         </record>
         <record id="file_format_field_ciudad0" model="file.format.field">
             <field name="name">ciudad</field>
@@ -34,7 +34,7 @@
             <field eval="60" name="length"/>
             <field name="fill_character"> </field>
             <field name="format" ref="file_format_tipsa0"/>
-            <field name="expression">$delivery_address.city</field>
+            <field name="expression">{{ record.delivery_address.city or '' }}</field>
         </record>
         <record id="file_format_field_zip0" model="file.format.field">
             <field name="name">zip</field>
@@ -43,7 +43,7 @@
             <field eval="5" name="length"/>
             <field name="fill_character"> </field>
             <field name="format" ref="file_format_tipsa0"/>
-            <field name="expression">$delivery_address.zip</field>
+            <field name="expression">{{ record.delivery_address.zip or '' }}</field>
         </record>
         <record id="file_format_field_provincia0" model="file.format.field">
             <field name="name">provincia</field>
@@ -52,7 +52,7 @@
             <field eval="20" name="length"/>
             <field name="fill_character"> </field>
             <field name="format" ref="file_format_tipsa0"/>
-            <field name="expression">$delivery_address.state.name</field>
+            <field name="expression">{{ record.delivery_address.state and record.delivery_address.state.name or '' }}</field>
         </record>
         <record id="file_format_field_calle0" model="file.format.field">
             <field name="name">calle</field>
@@ -61,7 +61,7 @@
             <field eval="50" name="length"/>
             <field name="fill_character"> </field>
             <field name="format" ref="file_format_tipsa0"/>
-            <field name="expression">$delivery_address.street</field>
+            <field name="expression">{{ record.delivery_address.street or '' }}</field>
         </record>
         <record id="file_format_field_observaciones0" model="file.format.field">
             <field name="name">observaciones</field>
@@ -70,7 +70,7 @@
             <field eval="80" name="length"/>
             <field name="fill_character"> </field>
             <field name="format" ref="file_format_tipsa0"/>
-            <field name="expression">$note.replace('\\n',' ')</field>
+            <field name="expression">{{ record.note and record.note|replace('\n',' ') }}</field>
         </record>
         <record id="file_format_field_referencia0" model="file.format.field">
             <field name="name">referencia</field>
@@ -79,7 +79,7 @@
             <field eval="16" name="length"/>
             <field name="fill_character"> </field>
             <field name="format" ref="file_format_tipsa0"/>
-            <field name="expression">$rec_name</field>
+            <field name="expression">{{ record.rec_name }}</field>
         </record>
         <record id="file_format_field_doc0" model="file.format.field">
             <field name="name">doc</field>
@@ -88,7 +88,7 @@
             <field eval="4" name="length"/>
             <field name="fill_character">0</field>
             <field name="format" ref="file_format_tipsa0"/>
-            <field name="expression">'0'</field>
+            <field name="expression">0</field>
         </record>
         <record id="file_format_field_paquetes0" model="file.format.field">
             <field name="name">paquetes</field>
@@ -97,7 +97,7 @@
             <field eval="4" name="length"/>
             <field name="fill_character">0</field>
             <field name="format" ref="file_format_tipsa0"/>
-            <field name="expression">$packages or 0</field>
+            <field name="expression">{{ record.packages or 0 }}</field>
         </record>
         <record id="file_format_field_reembolso0" model="file.format.field">
             <field name="name">reembolso</field>
@@ -107,8 +107,8 @@
             <field eval="12" name="length"/>
             <field name="fill_character">0</field>
             <field name="format" ref="file_format_tipsa0"/>
-            <field name="expression">'0'</field>
-            <field name="number_format">.2f</field>
+            <field name="expression">0</field>
+            <field name="number_format">%.2f</field>
         </record>
         <record id="file_format_field_kilos0" model="file.format.field">
             <field name="name">kilos</field>
@@ -117,7 +117,7 @@
             <field eval="4" name="length"/>
             <field name="fill_character">0</field>
             <field name="format" ref="file_format_tipsa0"/>
-            <field name="expression">int(round($weight,0)) or 0</field>
+            <field name="expression">{{ record.weight and record.weight|round or 0 }}</field>
         </record>
         <record id="file_format_field_conretorno0" model="file.format.field">
             <field name="name">Con Retorno</field>
@@ -126,7 +126,7 @@
             <field eval="1" name="length"/>
             <field name="fill_character"> </field>
             <field name="format" ref="file_format_tipsa0"/>
-            <field name="expression">'N'</field>
+            <field name="expression">N</field>
         </record>
         <record id="file_format_field_conacuse0" model="file.format.field">
             <field name="name">Con Acuse</field>
@@ -135,7 +135,7 @@
             <field eval="1" name="length"/>
             <field name="fill_character"> </field>
             <field name="format" ref="file_format_tipsa0"/>
-            <field name="expression">'N'</field>
+            <field name="expression">N</field>
         </record>
         <record id="file_format_field_codigocliente0" model="file.format.field">
             <field name="name">Codigo Cliente</field>
@@ -153,7 +153,7 @@
             <field eval="1" name="length"/>
             <field name="fill_character"> </field>
             <field name="format" ref="file_format_tipsa0"/>
-            <field name="expression">$incoterm and $incoterm.code == 'EXW' and 'P' or 'D'</field>
+            <field name="expression">{{ record.incoterm and record.incoterm.code == 'EXW' and 'P' or 'D' }}</field>
         </record>
         <record id="file_format_field_articulo0" model="file.format.field">
             <field name="name">Articulo</field>
@@ -162,7 +162,7 @@
             <field eval="2" name="length"/>
             <field name="fill_character"> </field>
             <field name="format" ref="file_format_tipsa0"/>
-            <field name="expression">'14'</field>
+            <field name="expression">14</field>
         </record>
         <record id="file_format_field_sabado0" model="file.format.field">
             <field name="name">Sabado</field>
@@ -171,7 +171,7 @@
             <field eval="1" name="length"/>
             <field name="fill_character"> </field>
             <field name="format" ref="file_format_tipsa0"/>
-            <field name="expression">'N'</field>
+            <field name="expression">N</field>
         </record>
         <record id="file_format_field_correo0" model="file.format.field">
             <field name="name">correo</field>
@@ -180,7 +180,7 @@
             <field eval="60" name="length"/>
             <field name="fill_character"> </field>
             <field name="format" ref="file_format_tipsa0"/>
-            <field name="expression">$customer.email</field>
+            <field name="expression">{{ record.customer.email or ''}}</field>
         </record>
     </data>
 </tryton>

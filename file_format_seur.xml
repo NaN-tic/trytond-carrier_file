@@ -9,7 +9,7 @@
             <field eval="&apos;&quot;&apos;" name="quote"/>
             <field eval="True" name="header"/>
             <field name="separator">,</field>
-            <field name="file_name">res.txt</field>
+            <field name="file_name">seur.txt</field>
             <field name="state">disabled</field>
         </record>
         <record id="file_format_field_nombreempresa1" model="file.format.field">
@@ -18,7 +18,7 @@
             <field name="align">left</field>
             <field name="fill_character"> </field>
             <field name="format" ref="file_format_seur0"/>
-            <field name="expression">$customer.rec_name</field>
+            <field name="expression">{{ record.customer.rec_name }}</field>
         </record>
         <record id="file_format_field_nombrecomercial1" model="file.format.field">
             <field name="name">Nombre Comercial</field>
@@ -26,7 +26,7 @@
             <field name="align">left</field>
             <field name="fill_character"> </field>
             <field name="format" ref="file_format_seur0"/>
-            <field name="expression">$customer.rec_name</field>
+            <field name="expression">{{ record.customer.rec_name }}</field>
         </record>
         <record id="file_format_field_callecompaa1" model="file.format.field">
             <field name="name">Calle Compañía</field>
@@ -34,7 +34,7 @@
             <field name="align">left</field>
             <field name="fill_character"> </field>
             <field name="format" ref="file_format_seur0"/>
-            <field name="expression">$delivery_address.street + $delivery_address.street2</field>
+            <field name="expression">{{ record.delivery_address.street or '' }}</field>
         </record>
         <record id="file_format_field_ciudad1" model="file.format.field">
             <field name="name">Ciudad</field>
@@ -42,7 +42,7 @@
             <field name="align">left</field>
             <field name="fill_character"> </field>
             <field name="format" ref="file_format_seur0"/>
-            <field name="expression">$delivery_address.city</field>
+            <field name="expression">{{ record.delivery_address.city or '' }}</field>
         </record>
         <record id="file_format_field_cp1" model="file.format.field">
             <field name="name">CP</field>
@@ -50,7 +50,7 @@
             <field name="align">left</field>
             <field name="fill_character"> </field>
             <field name="format" ref="file_format_seur0"/>
-            <field name="expression">$delivery_address.zip</field>
+            <field name="expression">{{ record.delivery_address.zip or ''}}</field>
         </record>
         <record id="file_format_field_telfono1" model="file.format.field">
             <field name="name">Teléfono</field>
@@ -58,7 +58,7 @@
             <field name="align">left</field>
             <field name="fill_character"> </field>
             <field name="format" ref="file_format_seur0"/>
-            <field name="expression">$customer.phone</field>
+            <field name="expression">{{ record.customer.phone or '' }}</field>
         </record>
         <record id="file_format_field_bltos1" model="file.format.field">
             <field name="name">Búltos</field>
@@ -66,7 +66,7 @@
             <field name="align">left</field>
             <field name="fill_character"> </field>
             <field name="format" ref="file_format_seur0"/>
-            <field name="expression">$packages or 1</field>
+            <field name="expression">{{ record.packages or 1 }}</field>
         </record>
         <record id="file_format_field_peso1" model="file.format.field">
             <field name="name">Peso</field>
@@ -75,7 +75,7 @@
             <field name="decimal_character">,</field>
             <field name="fill_character"> </field>
             <field name="format" ref="file_format_seur0"/>
-            <field name="expression">$weight or 0.0</field>
+            <field name="expression">{{ record.weight or 0.0 }}</field>
             <field name="number_format">%.2f</field>
         </record>
         <record id="file_format_field_origen1" model="file.format.field">
@@ -84,7 +84,7 @@
             <field name="align">left</field>
             <field name="fill_character"> </field>
             <field name="format" ref="file_format_seur0"/>
-            <field name="expression">$origin</field>
+            <field name="expression">{{ record.origin or '' }}</field>
         </record>
         <record id="file_format_field_total1" model="file.format.field">
             <field name="name">Total</field>
@@ -93,7 +93,7 @@
             <field name="decimal_character">,</field>
             <field name="fill_character"> </field>
             <field name="format" ref="file_format_seur0"/>
-            <field name="expression">$cash_on_delivery and ($sale.amount_total or 0.0) or ''</field>
+            <field name="expression">{{ record.cash_on_delivery and record.sale and record.sale.amount_total or 0.0 }}</field>
             <field name="number_format">%.2f</field>
         </record>
         <record id="file_format_field_contrareembolso1" model="file.format.field">
@@ -103,7 +103,7 @@
             <field eval="1" name="length"/>
             <field name="fill_character"> </field>
             <field name="format" ref="file_format_seur0"/>
-            <field name="expression">$cash_on_delivery and 'F' or ''</field>
+            <field name="expression">{{ record.cash_on_delivery and 'F' or '' }}</field>
         </record>
     </data>
 </tryton>
