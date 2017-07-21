@@ -11,6 +11,7 @@
             <field name="separator">,</field>
             <field name="quote">&quot;</field>
             <field name="state">disabled</field>
+            <field name="engine">jinja2</field>
         </record>
         <record id="file_format_field_ups_field1" model="file.format.field">
             <field name="format" ref="file_format_ups"/>
