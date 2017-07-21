@@ -9,6 +9,7 @@
             <field name="header" eval="True"/>
             <field name="file_name">tipsa.txt</field>
             <field name="state">disabled</field>
+            <field name="engine">jinja2</field>
         </record>
         <record id="file_format_field_client0" model="file.format.field">
             <field name="name">client</field>

@@ -11,8 +11,8 @@
             <field name="separator">;</field>
             <field name="quote">&quot;</field>
             <field name="state">disabled</field>
+            <field name="engine">jinja2</field>
         </record>
-
         <record id="file_format_field_numerodealbaranmrw1" model="file.format.field">
             <field name="name">Numero de albaran MRW</field>
             <field eval="1" name="sequence"/>
