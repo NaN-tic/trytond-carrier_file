@@ -237,6 +237,12 @@ Confirm Sales::
     >>> shipment.click('done')
     >>> shipment.state
     u'done'
+    >>> file_name = shipment.carrier.format.path+'/'+shipment.carrier.format.file_name
+    >>> file = open(file_name, 'r')
+    >>> fcontent = file.read()
+    >>> file.close()
+    >>> 'Customer' in fcontent
+    True
 
     >>> sale2.click('quote')
     >>> sale2.click('confirm')
@@ -250,6 +256,12 @@ Confirm Sales::
     >>> shipment.click('done')
     >>> shipment.state
     u'done'
+    >>> file_name = shipment.carrier.format.path+'/'+shipment.carrier.format.file_name
+    >>> file = open(file_name, 'r')
+    >>> fcontent = file.read()
+    >>> file.close()
+    >>> 'Customer' in fcontent
+    True
 
     >>> sale3.click('quote')
     >>> sale3.click('confirm')
@@ -263,6 +275,12 @@ Confirm Sales::
     >>> shipment.click('done')
     >>> shipment.state
     u'done'
+    >>> file_name = shipment.carrier.format.path+'/'+shipment.carrier.format.file_name
+    >>> file = open(file_name, 'r')
+    >>> fcontent = file.read()
+    >>> file.close()
+    >>> 'Customer' in fcontent
+    True
 
     >>> sale4.click('quote')
     >>> sale4.click('confirm')
@@ -276,6 +294,12 @@ Confirm Sales::
     >>> shipment.click('done')
     >>> shipment.state
     u'done'
+    >>> file_name = shipment.carrier.format.path+'/'+shipment.carrier.format.file_name
+    >>> file = open(file_name, 'r')
+    >>> fcontent = file.read()
+    >>> file.close()
+    >>> 'Customer' in fcontent
+    True
 
     >>> sale5.click('quote')
     >>> sale5.click('confirm')
@@ -289,6 +313,12 @@ Confirm Sales::
     >>> shipment.click('done')
     >>> shipment.state
     u'done'
+    >>> file_name = shipment.carrier.format.path+'/'+shipment.carrier.format.file_name
+    >>> file = open(file_name, 'r')
+    >>> fcontent = file.read()
+    >>> file.close()
+    >>> 'Customer' in fcontent
+    True
 
     >>> sale6.click('quote')
     >>> sale6.click('confirm')
@@ -302,3 +332,9 @@ Confirm Sales::
     >>> shipment.click('done')
     >>> shipment.state
     u'done'
+    >>> file_name = shipment.carrier.format.path+'/'+shipment.carrier.format.file_name
+    >>> file = open(file_name, 'r')
+    >>> fcontent = file.read()
+    >>> file.close()
+    >>> 'Customer' in fcontent
+    True
