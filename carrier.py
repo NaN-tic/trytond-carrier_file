@@ -9,7 +9,6 @@ __all__ = ['Carrier', 'CarrierFileWizardStart', 'CarrierFileWizard',
     'ShipmentOut']
 
 
-
 class Carrier:
     __metaclass__ = PoolMeta
     __name__ = 'carrier'
@@ -98,7 +97,7 @@ class ShipmentOut:
         super(ShipmentOut, cls).__setup__()
         cls._buttons.update({
                 'generate_carrier_files': {
-                        'invisible': Eval('state') != 'done'
+                    'invisible': Eval('state') != 'done',
                     },
                 })
 

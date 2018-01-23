@@ -8,6 +8,7 @@ Imports::
     >>> from dateutil.relativedelta import relativedelta
     >>> from decimal import Decimal
     >>> from proteus import config, Model, Wizard
+    >>> from trytond.tests.tools import activate_modules
     >>> from trytond.modules.company.tests.tools import create_company, \
     ...     get_company
     >>> from trytond.modules.account.tests.tools import create_fiscalyear, \
@@ -17,27 +18,14 @@ Imports::
     >>> today = datetime.date.today()
     >>> yesterday = today - relativedelta(days=1)
 
-Create database::
+Activate carrier_file Module::
 
-    >>> config = config.set_trytond()
-    >>> config.pool.test = True
-
-Install carrier_file Module::
-
-    >>> Module = Model.get('ir.module')
-    >>> module, = Module.find([('name', '=', 'carrier_file')])
-    >>> module.click('install')
-    >>> Wizard('ir.module.install_upgrade').execute('upgrade')
+    >>> config = activate_modules('carrier_file')
 
 Create company::
 
     >>> _ = create_company()
     >>> company = get_company()
-
-Reload the context::
-
-    >>> User = Model.get('res.user')
-    >>> config._context = User.get_preferences(True, config.context)
 
 Create fiscal year::
 
