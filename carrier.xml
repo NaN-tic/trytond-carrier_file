@@ -29,5 +29,11 @@
         <menuitem parent="stock.menu_stock" sequence="999" id="gen_carrier_files"
             action="act_generate_carrier_files"/>
 
+        <record model="ir.model.button" id="generate_carrier_files">
+            <field name="name">generate_carrier_files</field>
+            <field name="string">Generate Carrier Files</field>
+            <field name="model" search="[('model', '=', 'stock.shipment.out')]"/>
+        </record>
+
     </data>
 </tryton>

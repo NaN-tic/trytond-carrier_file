@@ -3,8 +3,7 @@
      copyright notices and license terms. -->
 <data>
     <xpath expr="//group[@id='buttons']" position="inside">
-        <button string="Regenerate Carrier Files"
-            name="generate_carrier_files" />
+        <button name="generate_carrier_files" />
     </xpath>
 </data>
 
