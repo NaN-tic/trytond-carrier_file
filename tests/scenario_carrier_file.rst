@@ -68,6 +68,18 @@ Create carrier::
     >>> pcarrier = Party(name='Carrier')
     >>> pcarrier.save()
 
+Create account category::
+
+    >>> Tax = Model.get('account.tax')
+    >>> ProductCategory = Model.get('product.category')
+    >>> account_category = ProductCategory(name="Account Category")
+    >>> account_category.accounting = True
+    >>> account_category.account_expense = expense
+    >>> account_category.account_revenue = revenue
+    >>> account_category.customer_taxes.append(tax)
+    >>> account_category.supplier_taxes.append(Tax(tax.id))
+    >>> account_category.save()
+
 Create product::
 
     >>> ProductUom = Model.get('product.uom')
@@ -80,10 +92,8 @@ Create product::
     >>> template.default_uom = unit
     >>> template.type = 'goods'
     >>> template.list_price = Decimal('20')
-    >>> template.cost_price = Decimal('8')
     >>> template.salable = True
-    >>> template.account_expense = expense
-    >>> template.account_revenue = revenue
+    >>> template.account_category = account_category
     >>> template.save()
     >>> product.template = template
     >>> product.save()
@@ -96,10 +106,8 @@ Create Carriers::
     >>> template.default_uom = unit
     >>> template.type = 'service'
     >>> template.list_price = Decimal('10')
-    >>> template.cost_price = Decimal('5')
     >>> template.salable = True
-    >>> template.account_expense = expense
-    >>> template.account_revenue = revenue
+    >>> template.account_category = account_category
     >>> template.save()
     >>> cproduct.template = template
     >>> cproduct.save()
