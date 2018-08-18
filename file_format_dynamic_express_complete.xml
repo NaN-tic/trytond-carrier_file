@@ -190,7 +190,7 @@
             <field name="sequence" eval="25"/>
             <field name="name">IVA</field>
             <field name="align">left</field>
-            <field name="expression">{% for t in record.carrier.carrier_product.customer_taxes_used %}{{ tax.rate * 100 }}, {% endfor %}</field>
+            <field name="expression">{% for tax in record.carrier.carrier_product.customer_taxes_used %}{{ tax.rate * 100 }}, {% endfor %}</field>
         </record>
         <record id="file_format_field_dynamicexpress_complete_field26" model="file.format.field">
             <field name="format" ref="file_format_dynamicexpress_complete"/>
