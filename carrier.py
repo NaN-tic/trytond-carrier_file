@@ -9,8 +9,7 @@ __all__ = ['Carrier', 'CarrierFileWizardStart', 'CarrierFileWizard',
     'ShipmentOut']
 
 
-class Carrier:
-    __metaclass__ = PoolMeta
+class Carrier(metaclass=PoolMeta):
     __name__ = 'carrier'
 
     format = fields.Many2One('file.format', 'File Format')
@@ -88,8 +87,7 @@ class CarrierFileWizard(Wizard):
         return 'end'
 
 
-class ShipmentOut:
-    __metaclass__ = PoolMeta
+class ShipmentOut(metaclass=PoolMeta):
     __name__ = 'stock.shipment.out'
 
     @classmethod

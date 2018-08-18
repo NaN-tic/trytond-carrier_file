@@ -232,7 +232,7 @@ Confirm Sales::
     >>> shipment.click('pack')
     >>> shipment.click('done')
     >>> shipment.state
-    u'done'
+    'done'
     >>> file_name = shipment.carrier.format.path+'/'+shipment.carrier.format.file_name
     >>> file = open(file_name, 'r')
     >>> fcontent = file.read()
@@ -251,7 +251,7 @@ Confirm Sales::
     >>> shipment.click('pack')
     >>> shipment.click('done')
     >>> shipment.state
-    u'done'
+    'done'
     >>> file_name = shipment.carrier.format.path+'/'+shipment.carrier.format.file_name
     >>> file = open(file_name, 'r')
     >>> fcontent = file.read()
@@ -270,7 +270,7 @@ Confirm Sales::
     >>> shipment.click('pack')
     >>> shipment.click('done')
     >>> shipment.state
-    u'done'
+    'done'
     >>> file_name = shipment.carrier.format.path+'/'+shipment.carrier.format.file_name
     >>> file = open(file_name, 'r')
     >>> fcontent = file.read()
@@ -289,7 +289,7 @@ Confirm Sales::
     >>> shipment.click('pack')
     >>> shipment.click('done')
     >>> shipment.state
-    u'done'
+    'done'
     >>> file_name = shipment.carrier.format.path+'/'+shipment.carrier.format.file_name
     >>> file = open(file_name, 'r')
     >>> fcontent = file.read()
@@ -308,7 +308,7 @@ Confirm Sales::
     >>> shipment.click('pack')
     >>> shipment.click('done')
     >>> shipment.state
-    u'done'
+    'done'
     >>> file_name = shipment.carrier.format.path+'/'+shipment.carrier.format.file_name
     >>> file = open(file_name, 'r')
     >>> fcontent = file.read()
@@ -327,7 +327,7 @@ Confirm Sales::
     >>> shipment.click('pack')
     >>> shipment.click('done')
     >>> shipment.state
-    u'done'
+    'done'
     >>> file_name = shipment.carrier.format.path+'/'+shipment.carrier.format.file_name
     >>> file = open(file_name, 'r')
     >>> fcontent = file.read()
