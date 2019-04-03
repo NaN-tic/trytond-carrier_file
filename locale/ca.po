@@ -1,11 +1,6 @@
-# 
+#
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
-
-msgctxt "error:carrier.file.wizard:"
-msgid "There are no shipments for this dates and carrier."
-msgstr ""
-"No hi ha albarans de client per les dates i el transportista seleccionats"
 
 msgctxt "field:carrier,format:"
 msgid "File Format"
@@ -38,6 +33,11 @@ msgstr "Genera fitxers de transportista"
 msgctxt "model:ir.action.wizard,name:act_generate_carrier_files"
 msgid "Generate Carrier Files"
 msgstr "Genera fitxers de transportista"
+
+msgctxt "model:ir.message,text:msg_no_shipments"
+msgid "There are no shipments for this dates and carrier."
+msgstr ""
+"No hi ha albarans de client per les dates i el transportista seleccionats"
 
 msgctxt "model:ir.ui.menu,name:gen_carrier_files"
 msgid "Generate Carrier Files"
