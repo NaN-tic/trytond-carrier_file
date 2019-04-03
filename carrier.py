@@ -4,6 +4,8 @@ from trytond.model import ModelView, fields
 from trytond.pool import Pool, PoolMeta
 from trytond.pyson import Eval
 from trytond.wizard import Wizard, StateView, StateTransition, Button
+from trytond.i18n import gettext
+from trytond.exceptions import UserError
 
 __all__ = ['Carrier', 'CarrierFileWizardStart', 'CarrierFileWizard',
     'ShipmentOut']
@@ -59,14 +61,6 @@ class CarrierFileWizard(Wizard):
             ])
     generate = StateTransition()
 
-    @classmethod
-    def __setup__(cls):
-        super(CarrierFileWizard, cls).__setup__()
-        cls._error_messages.update({
-                'no_shipments': ('There are no shipments for this dates and '
-                    'carrier.'),
-                })
-
     def transition_generate(self):
         pool = Pool()
         Shipment = pool.get('stock.shipment.out')
@@ -82,7 +76,7 @@ class CarrierFileWizard(Wizard):
         pickings = Shipment.search(domain)
 
         if not pickings:
-            self.raise_user_error('no_shipments')
+            raise UserError(gettext('carrier_file.msg_no_shipments'))
         Carrier.generate_carrier_files(pickings, self.start.carrier)
         return 'end'
 
