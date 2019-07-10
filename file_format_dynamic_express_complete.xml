@@ -102,7 +102,7 @@
             <field name="sequence" eval="13"/>
             <field name="name">POSTALR</field>
             <field name="align">left</field>
-            <field name="length">5</field>
+            <field name="length" eval="5"/>
             <field name="fill_character">0</field>
             <field name="expression">{{ record.company.party.address_get() and record.company.party.address_get().zip or '' }}</field>
         </record>
@@ -160,7 +160,7 @@
             <field name="sequence" eval="21"/>
             <field name="name">POSTALD</field>
             <field name="align">left</field>
-            <field name="length">5</field>
+            <field name="length" eval="5"/>
             <field name="fill_character">0</field>
             <field name="expression">{{ record.delivery_address.zip or '' }}</field>
         </record>
