@@ -18,7 +18,7 @@
             <field name="sequence" eval="1"/>
             <field name="name">ALBARAN</field>
             <field name="align">right</field>
-            <field name="length">15</field>
+            <field name="length" eval="15"/>
             <field name="fill_character"> </field>
             <field name="expression">{{ record.rec_name }}</field>
         </record>
@@ -27,7 +27,7 @@
             <field name="sequence" eval="2"/>
             <field name="name">DESTINATARIO</field>
             <field name="align">right</field>
-            <field name="length">45</field>
+            <field name="length" eval="45"/>
             <field name="fill_character"> </field>
             <field name="expression">{{ record.customer.name }}</field>
         </record>
@@ -36,7 +36,7 @@
             <field name="sequence" eval="3"/>
             <field name="name">DOMICD</field>
             <field name="align">right</field>
-            <field name="length">45</field>
+            <field name="length" eval="45"/>
             <field name="fill_character"> </field>
             <field name="expression">{{ record.delivery_address.street or '' }}</field>
         </record>
@@ -45,7 +45,7 @@
             <field name="sequence" eval="4"/>
             <field name="name">POBLACD</field>
             <field name="align">right</field>
-            <field name="length">35</field>
+            <field name="length" eval="35"/>
             <field name="fill_character"> </field>
             <field name="expression">{{ record.delivery_address.city or '' }}</field>
         </record>
@@ -54,7 +54,7 @@
             <field name="sequence" eval="5"/>
             <field name="name">POSTALD</field>
             <field name="align">right</field>
-            <field name="length">5</field>
+            <field name="length" eval="5"/>
             <field name="fill_character">0</field>
             <field name="expression">{{ record.delivery_address.zip or '' }}</field>
         </record>
@@ -63,7 +63,7 @@
             <field name="sequence" eval="6"/>
             <field name="name">PAIS_DES</field>
             <field name="align">right</field>
-            <field name="length">2</field>
+            <field name="length" eval="2"/>
             <field name="fill_character"> </field>
             <field name="expression">{{ record.delivery_address.country and record.delivery_address.country.code or '' }}</field>
         </record>
@@ -72,7 +72,7 @@
             <field name="sequence" eval="7"/>
             <field name="name">CONTACTO</field>
             <field name="align">right</field>
-            <field name="length">45</field>
+            <field name="length" eval="45"/>
             <field name="fill_character"> </field>
             <field name="expression">{{ record.delivery_address.name or '' }}</field>
         </record>
@@ -81,7 +81,7 @@
             <field name="sequence" eval="8"/>
             <field name="name">TELEFONOD</field>
             <field name="align">right</field>
-            <field name="length">9</field>
+            <field name="length" eval="9"/>
             <field name="fill_character"> </field>
             <field name="expression">{{ record.customer.phone or '' }}</field>
         </record>
@@ -90,7 +90,7 @@
             <field name="sequence" eval="9"/>
             <field name="name">MOVIL</field>
             <field name="align">right</field>
-            <field name="length">9</field>
+            <field name="length" eval="9"/>
             <field name="fill_character"> </field>
             <field name="expression">{{ record.customer.mobile or '' }}</field>
         </record>
@@ -99,7 +99,7 @@
             <field name="sequence" eval="10"/>
             <field name="name">EMAILD</field>
             <field name="align">right</field>
-            <field name="length">75</field>
+            <field name="length" eval="75"/>
             <field name="fill_character"> </field>
             <field name="expression">{{ record.customer.email or '' }}</field>
         </record>
@@ -108,7 +108,7 @@
             <field name="sequence" eval="11"/>
             <field name="name">BULTOS</field>
             <field name="align">right</field>
-            <field name="length">5</field>
+            <field name="length" eval="5"/>
             <field name="fill_character"> </field>
             <field name="expression">{{ record.number_packages and record.number_packages|int or 0 }}</field>
         </record>
@@ -117,7 +117,7 @@
             <field name="sequence" eval="12"/>
             <field name="name">PESO</field>
             <field name="align">right</field>
-            <field name="length">6</field>
+            <field name="length" eval="6"/>
             <field name="fill_character"> </field>
             <field name="expression">1</field>
         </record>
@@ -126,7 +126,7 @@
             <field name="sequence" eval="14"/>
             <field name="name">OBSERVACIONES</field>
             <field name="align">right</field>
-            <field name="length">50</field>
+            <field name="length" eval="50"/>
             <field name="fill_character"> </field>
             <field name="expression">{{ record.customer.external_observations or '' }}</field>
         </record>

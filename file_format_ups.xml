@@ -109,7 +109,7 @@
             <field name="sequence" eval="14"/>
             <field name="name">SHIPTO_ZIPCODE</field>
             <field name="align">left</field>
-            <field name="length">5</field>
+            <field name="length" eval="5"/>
             <field name="fill_character">0</field>
             <field name="expression">{{ record.delivery_address.zip or '' }}</field>
         </record>
