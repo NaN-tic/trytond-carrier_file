@@ -43,13 +43,6 @@ class CarrierFileWizardStart(ModelView):
     carrier = fields.Many2One('carrier', 'Carrier')
 
 
-class CarrierFileWizardEnd(ModelView):
-    'Carrier File Wizard End'
-    __name__ = 'carrier.file.wizard.end'
-
-    results = fields.Text('Results')
-
-
 class CarrierFileWizard(Wizard):
     'Carrier File Wizard'
     __name__ = 'carrier.file.wizard'
