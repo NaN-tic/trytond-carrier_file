@@ -51,7 +51,7 @@
             <field name="align">left</field>
             <field name="fill_character"> </field>
             <field name="format" ref="file_format_seur0"/>
-            <field name="expression">{{ record.delivery_address.zip or ''}}</field>
+            <field name="expression">{{ record.delivery_address.postal_code or ''}}</field>
         </record>
         <record id="file_format_field_telfono1" model="file.format.field">
             <field name="name">Teléfono</field>

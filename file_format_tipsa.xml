@@ -44,7 +44,7 @@
             <field eval="5" name="length"/>
             <field name="fill_character"> </field>
             <field name="format" ref="file_format_tipsa0"/>
-            <field name="expression">{{ record.delivery_address.zip or '' }}</field>
+            <field name="expression">{{ record.delivery_address.postal_code or '' }}</field>
         </record>
         <record id="file_format_field_provincia0" model="file.format.field">
             <field name="name">provincia</field>

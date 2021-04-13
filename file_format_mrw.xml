@@ -81,7 +81,7 @@
             <field eval="10" name="sequence"/>
             <field name="align">left</field>
             <field name="format" ref="file_format_mrw0"/>
-            <field name="expression">{{ record.delivery_address.zip or 00000 }}</field>
+            <field name="expression">{{ record.delivery_address.postal_code or 00000 }}</field>
         </record>
         <record id="file_format_field_poblacion1" model="file.format.field">
             <field name="name">Poblacion</field>

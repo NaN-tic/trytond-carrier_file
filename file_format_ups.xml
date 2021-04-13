@@ -111,7 +111,7 @@
             <field name="align">left</field>
             <field name="length" eval="5"/>
             <field name="fill_character">0</field>
-            <field name="expression">{{ record.delivery_address.zip or '' }}</field>
+            <field name="expression">{{ record.delivery_address.postal_code or '' }}</field>
         </record>
         <record id="file_format_field_ups_field15" model="file.format.field">
             <field name="format" ref="file_format_ups"/>
