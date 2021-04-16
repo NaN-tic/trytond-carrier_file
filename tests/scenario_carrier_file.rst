@@ -223,6 +223,7 @@ Confirm Sales::
     >>> shipment.click('wait')
     >>> shipment.click('assign_try')
     True
+    >>> shipment.click('pick')
     >>> shipment.click('pack')
     >>> shipment.click('done')
     >>> shipment.state
@@ -242,6 +243,7 @@ Confirm Sales::
     >>> shipment.click('wait')
     >>> shipment.click('assign_try')
     True
+    >>> shipment.click('pick')
     >>> shipment.click('pack')
     >>> shipment.click('done')
     >>> shipment.state
@@ -261,6 +263,7 @@ Confirm Sales::
     >>> shipment.click('wait')
     >>> shipment.click('assign_try')
     True
+    >>> shipment.click('pick')
     >>> shipment.click('pack')
     >>> shipment.click('done')
     >>> shipment.state
@@ -280,6 +283,7 @@ Confirm Sales::
     >>> shipment.click('wait')
     >>> shipment.click('assign_try')
     True
+    >>> shipment.click('pick')
     >>> shipment.click('pack')
     >>> shipment.click('done')
     >>> shipment.state
@@ -299,6 +303,7 @@ Confirm Sales::
     >>> shipment.click('wait')
     >>> shipment.click('assign_try')
     True
+    >>> shipment.click('pick')
     >>> shipment.click('pack')
     >>> shipment.click('done')
     >>> shipment.state
@@ -318,6 +323,7 @@ Confirm Sales::
     >>> shipment.click('wait')
     >>> shipment.click('assign_try')
     True
+    >>> shipment.click('pick')
     >>> shipment.click('pack')
     >>> shipment.click('done')
     >>> shipment.state
