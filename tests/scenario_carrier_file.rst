@@ -222,7 +222,6 @@ Confirm Sales::
     >>> shipment, = sale1.shipments
     >>> shipment.click('wait')
     >>> shipment.click('assign_try')
-    True
     >>> shipment.click('pick')
     >>> shipment.click('pack')
     >>> shipment.click('done')
@@ -242,7 +241,6 @@ Confirm Sales::
     >>> shipment, = sale2.shipments
     >>> shipment.click('wait')
     >>> shipment.click('assign_try')
-    True
     >>> shipment.click('pick')
     >>> shipment.click('pack')
     >>> shipment.click('done')
@@ -262,7 +260,6 @@ Confirm Sales::
     >>> shipment, = sale3.shipments
     >>> shipment.click('wait')
     >>> shipment.click('assign_try')
-    True
     >>> shipment.click('pick')
     >>> shipment.click('pack')
     >>> shipment.click('done')
@@ -282,7 +279,6 @@ Confirm Sales::
     >>> shipment, = sale4.shipments
     >>> shipment.click('wait')
     >>> shipment.click('assign_try')
-    True
     >>> shipment.click('pick')
     >>> shipment.click('pack')
     >>> shipment.click('done')
@@ -302,7 +298,6 @@ Confirm Sales::
     >>> shipment, = sale5.shipments
     >>> shipment.click('wait')
     >>> shipment.click('assign_try')
-    True
     >>> shipment.click('pick')
     >>> shipment.click('pack')
     >>> shipment.click('done')
@@ -322,7 +317,6 @@ Confirm Sales::
     >>> shipment, = sale6.shipments
     >>> shipment.click('wait')
     >>> shipment.click('assign_try')
-    True
     >>> shipment.click('pick')
     >>> shipment.click('pack')
     >>> shipment.click('done')
