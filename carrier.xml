@@ -30,7 +30,7 @@
         <record model="ir.model.button" id="generate_carrier_files">
             <field name="name">generate_carrier_files</field>
             <field name="string">Generate Carrier Files</field>
-            <field name="model" search="[('model', '=', 'stock.shipment.out')]"/>
+            <field name="model">stock.shipment.out</field>
         </record>
 
     </data>
