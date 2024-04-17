@@ -93,6 +93,6 @@ class ShipmentOut(metaclass=PoolMeta):
         Carrier.generate_carrier_files(shipments)
 
     @classmethod
-    def done(cls, shipments):
-        super(ShipmentOut, cls).done(shipments)
+    def do(cls, shipments):
+        super(ShipmentOut, cls).do(shipments)
         cls.generate_carrier_files(shipments)
