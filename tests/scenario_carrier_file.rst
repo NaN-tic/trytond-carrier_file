@@ -224,7 +224,7 @@ Confirm Sales::
     >>> shipment.click('assign_try')
     >>> shipment.click('pick')
     >>> shipment.click('pack')
-    >>> shipment.click('done')
+    >>> shipment.click('do')
     >>> shipment.state
     'done'
     >>> file_name = shipment.carrier.format.path+'/'+shipment.carrier.format.file_name
@@ -243,7 +243,7 @@ Confirm Sales::
     >>> shipment.click('assign_try')
     >>> shipment.click('pick')
     >>> shipment.click('pack')
-    >>> shipment.click('done')
+    >>> shipment.click('do')
     >>> shipment.state
     'done'
     >>> file_name = shipment.carrier.format.path+'/'+shipment.carrier.format.file_name
@@ -262,7 +262,7 @@ Confirm Sales::
     >>> shipment.click('assign_try')
     >>> shipment.click('pick')
     >>> shipment.click('pack')
-    >>> shipment.click('done')
+    >>> shipment.click('do')
     >>> shipment.state
     'done'
     >>> file_name = shipment.carrier.format.path+'/'+shipment.carrier.format.file_name
@@ -281,7 +281,7 @@ Confirm Sales::
     >>> shipment.click('assign_try')
     >>> shipment.click('pick')
     >>> shipment.click('pack')
-    >>> shipment.click('done')
+    >>> shipment.click('do')
     >>> shipment.state
     'done'
     >>> file_name = shipment.carrier.format.path+'/'+shipment.carrier.format.file_name
@@ -300,7 +300,7 @@ Confirm Sales::
     >>> shipment.click('assign_try')
     >>> shipment.click('pick')
     >>> shipment.click('pack')
-    >>> shipment.click('done')
+    >>> shipment.click('do')
     >>> shipment.state
     'done'
     >>> file_name = shipment.carrier.format.path+'/'+shipment.carrier.format.file_name
@@ -319,7 +319,7 @@ Confirm Sales::
     >>> shipment.click('assign_try')
     >>> shipment.click('pick')
     >>> shipment.click('pack')
-    >>> shipment.click('done')
+    >>> shipment.click('do')
     >>> shipment.state
     'done'
     >>> file_name = shipment.carrier.format.path+'/'+shipment.carrier.format.file_name
