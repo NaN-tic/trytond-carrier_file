@@ -4,7 +4,7 @@
 <tryton>
     <data>
         <record id="file_format_dynamicexpress_complete" model="file.format">
-            <field name="model" search="[('model', '=', 'stock.shipment.out')]"/>
+            <field name="model" search="[('name', '=', 'stock.shipment.out')]"/>
             <field name="name">DynamicExpress Complete</field>
             <field name="file_name">dynamic.txt</field>
             <field name="header" eval="False"/>

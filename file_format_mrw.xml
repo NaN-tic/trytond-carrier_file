@@ -4,7 +4,7 @@
 <tryton>
     <data>
         <record id="file_format_mrw0" model="file.format">
-            <field name="model" search="[('model', '=', 'stock.shipment.out')]"/>
+            <field name="model" search="[('name', '=', 'stock.shipment.out')]"/>
             <field name="name">MRW</field>
             <field name="file_name">mrw.csv</field>
             <field name="header" eval="False"/>

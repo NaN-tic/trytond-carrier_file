@@ -4,7 +4,7 @@
 <tryton>
     <data>
         <record id="file_format_tipsa0" model="file.format">
-            <field name="model" search="[('model', '=', 'stock.shipment.out')]"/>
+            <field name="model" search="[('name', '=', 'stock.shipment.out')]"/>
             <field name="name">TIPSA</field>
             <field name="header" eval="True"/>
             <field name="file_name">tipsa.txt</field>
