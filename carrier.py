@@ -1,5 +1,7 @@
 # The COPYRIGHT file at the top level of this repository contains the full
 # copyright notices and license terms.
+import logging
+from trytond.config import config
 from trytond.model import ModelView, fields
 from trytond.pool import Pool, PoolMeta
 from trytond.pyson import Eval
@@ -7,8 +9,8 @@ from trytond.wizard import Wizard, StateView, StateTransition, Button
 from trytond.i18n import gettext
 from trytond.exceptions import UserError
 
-__all__ = ['Carrier', 'CarrierFileWizardStart', 'CarrierFileWizard',
-    'ShipmentOut']
+PRODUCTION_ENV = config.getboolean('nantic_connection', 'production', default=False)
+logger = logging.getLogger(__name__)
 
 
 class Carrier(metaclass=PoolMeta):
@@ -59,6 +61,10 @@ class CarrierFileWizard(Wizard):
         Shipment = pool.get('stock.shipment.out')
         Carrier = pool.get('carrier')
 
+        if not PRODUCTION_ENV:
+            logger.warning('Production mode is not enabled.')
+            return 'end'
+
         domain = []
         if self.start.start_date:
             domain.append(('effective_date', '>=', self.start.start_date))
@@ -87,9 +93,15 @@ class ShipmentOut(metaclass=PoolMeta):
                 })
 
     @classmethod
+    @ModelView.button
     def generate_carrier_files(cls, shipments):
         pool = Pool()
         Carrier = pool.get('carrier')
+
+        if not PRODUCTION_ENV:
+            logger.warning('Production mode is not enabled.')
+            return
+
         Carrier.generate_carrier_files(shipments)
 
     @classmethod
