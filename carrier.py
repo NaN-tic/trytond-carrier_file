@@ -9,7 +9,7 @@ from trytond.wizard import Wizard, StateView, StateTransition, Button
 from trytond.i18n import gettext
 from trytond.exceptions import UserError
 
-PRODUCTION_ENV = config.getboolean('nantic_connection', 'production', default=False)
+PRODUCTION_ENV = config.getboolean('database', 'production', default=False)
 logger = logging.getLogger(__name__)
 
 
