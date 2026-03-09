@@ -14,10 +14,6 @@ msgctxt "field:carrier.file.wizard.start,end_date:"
 msgid "End Date"
 msgstr "Data final"
 
-msgctxt "field:carrier.file.wizard.start,id:"
-msgid "ID"
-msgstr "ID"
-
 msgctxt "field:carrier.file.wizard.start,start_date:"
 msgid "Start Date"
 msgstr "Data inicial"
@@ -37,6 +33,10 @@ msgstr "Generar ficheros transportistas"
 msgctxt "model:ir.message,text:msg_no_shipments"
 msgid "There are no shipments for this dates and carrier."
 msgstr "No hay albaranes para estas fechas y transportista"
+
+msgctxt "model:ir.model.button,string:generate_carrier_files"
+msgid "Generate Carrier Files"
+msgstr "Generar ficheros transportistas"
 
 msgctxt "model:ir.ui.menu,name:gen_carrier_files"
 msgid "Generate Carrier Files"
