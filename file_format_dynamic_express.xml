@@ -16,7 +16,7 @@
         <record id="file_format_field_dynamicexpress_field1" model="file.format.field">
             <field name="format" ref="file_format_dynamicexpress"/>
             <field name="sequence" eval="1"/>
-            <field name="name">ALBARAN</field>
+            <field name="name">Delivery Note</field>
             <field name="align">right</field>
             <field name="length" eval="15"/>
             <field name="fill_character"> </field>

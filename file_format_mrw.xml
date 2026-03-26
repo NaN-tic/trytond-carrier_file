@@ -14,7 +14,7 @@
             <field name="engine">jinja2</field>
         </record>
         <record id="file_format_field_numerodealbaranmrw1" model="file.format.field">
-            <field name="name">Numero de albaran MRW</field>
+            <field name="name">MRW Delivery Note Number</field>
             <field eval="1" name="sequence"/>
             <field name="align">left</field>
             <field name="format" ref="file_format_mrw0"/>
