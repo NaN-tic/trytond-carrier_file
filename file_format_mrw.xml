@@ -67,7 +67,7 @@
             <field eval="8" name="sequence"/>
             <field name="align">left</field>
             <field name="format" ref="file_format_mrw0"/>
-            <field name="expression">{{ record.delivery_address.name or record.customer.rec_name or '' }}</field>
+            <field name="expression">{{ record.delivery_address.party_name or record.customer.rec_name or '' }}</field>
         </record>
         <record id="file_format_field_direccionentrega1" model="file.format.field">
             <field name="name">Direccion Entrega</field>
