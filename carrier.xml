@@ -34,4 +34,10 @@
         </record>
 
     </data>
+    <data>
+        <record model="ir.action-res.group" id="generate_carrier_files_group_stock">
+            <field name="action" ref="act_generate_carrier_files"/>
+            <field name="group" ref="stock.group_stock"/>
+        </record>
+    </data>
 </tryton>
